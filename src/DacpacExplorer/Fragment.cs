@@ -3607,6 +3607,112 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 
 
+			 private void DisplayCreateOrAlterViewStatement(Microsoft.SqlServer.TransactSql.ScriptDom.CreateOrAlterViewStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("CreateOrAlterViewStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.SchemaObjectName,currentObjectTreeViewItem);
+								//  -- Processing of set_SchemaObjectName
+
+								
+								{
+									var newItem=AddTSqlFragment("Columns"+"["+currentFragment.Columns.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Columns){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								
+								{
+									var newItem=AddTSqlFragment("ViewOptions"+"["+currentFragment.ViewOptions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.ViewOptions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								ProcessTSQLFragment(currentFragment.SelectStatement,currentObjectTreeViewItem);
+								//  -- Processing of set_SelectStatement
+
+								//  -- Non Ilist Processing of get_WithCheckOption
+								{
+									string Proc = "WithCheckOption";
+									string Val = currentFragment.WithCheckOption.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_WithCheckOption
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
 			 private void DisplayTriggerObject(Microsoft.SqlServer.TransactSql.ScriptDom.TriggerObject currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("TriggerObject");
@@ -4318,6 +4424,136 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 
 
+			 private void DisplayCreateOrAlterTriggerStatement(Microsoft.SqlServer.TransactSql.ScriptDom.CreateOrAlterTriggerStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("CreateOrAlterTriggerStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								ProcessTSQLFragment(currentFragment.TriggerObject,currentObjectTreeViewItem);
+								//  -- Processing of set_TriggerObject
+
+								
+								{
+									var newItem=AddTSqlFragment("Options"+"["+currentFragment.Options.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Options){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Non Ilist Processing of get_TriggerType
+								{
+									string Proc = "TriggerType";
+									string Val = currentFragment.TriggerType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_TriggerType
+
+								
+								{
+									var newItem=AddTSqlFragment("TriggerActions"+"["+currentFragment.TriggerActions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.TriggerActions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Non Ilist Processing of get_WithAppend
+								{
+									string Proc = "WithAppend";
+									string Val = currentFragment.WithAppend.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_WithAppend
+
+								//  -- Non Ilist Processing of get_IsNotForReplication
+								{
+									string Proc = "IsNotForReplication";
+									string Val = currentFragment.IsNotForReplication.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsNotForReplication
+
+								ProcessTSQLFragment(currentFragment.StatementList,currentObjectTreeViewItem);
+								//  -- Processing of set_StatementList
+
+								ProcessTSQLFragment(currentFragment.MethodSpecifier,currentObjectTreeViewItem);
+								//  -- Processing of set_MethodSpecifier
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
 			 private void DisplayProcedureStatementBodyBase(Microsoft.SqlServer.TransactSql.ScriptDom.ProcedureStatementBodyBase currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ProcedureStatementBodyBase");
@@ -4625,6 +4861,115 @@ namespace DacpacExplorer.TSqlFragmentProcess
 			 private void DisplayCreateProcedureStatement(Microsoft.SqlServer.TransactSql.ScriptDom.CreateProcedureStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("CreateProcedureStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.ProcedureReference,currentObjectTreeViewItem);
+								//  -- Processing of set_ProcedureReference
+
+								//  -- Non Ilist Processing of get_IsForReplication
+								{
+									string Proc = "IsForReplication";
+									string Val = currentFragment.IsForReplication.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsForReplication
+
+								
+								{
+									var newItem=AddTSqlFragment("Options"+"["+currentFragment.Options.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Options){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								
+								{
+									var newItem=AddTSqlFragment("Parameters"+"["+currentFragment.Parameters.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Parameters){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								ProcessTSQLFragment(currentFragment.StatementList,currentObjectTreeViewItem);
+								//  -- Processing of set_StatementList
+
+								ProcessTSQLFragment(currentFragment.MethodSpecifier,currentObjectTreeViewItem);
+								//  -- Processing of set_MethodSpecifier
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayCreateOrAlterProcedureStatement(Microsoft.SqlServer.TransactSql.ScriptDom.CreateOrAlterProcedureStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("CreateOrAlterProcedureStatement");
 						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
                         COD.Properties = panel;
 								//  -- Processing of Accept
@@ -5166,6 +5511,93 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								//  -- Processing of Accept
 
 								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayInlineFunctionOption(Microsoft.SqlServer.TransactSql.ScriptDom.InlineFunctionOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("InlineFunctionOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_OptionState
+								{
+									string Proc = "OptionState";
+									string Val = currentFragment.OptionState.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionState
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -6516,6 +6948,9 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								}
 								}
 
+								ProcessTSQLFragment(currentFragment.SystemTimePeriod,currentObjectTreeViewItem);
+								//  -- Processing of set_SystemTimePeriod
+
 								//  -- Processing of Accept
 
 								//  -- Processing of AcceptChildren
@@ -6898,6 +7333,9 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.TableSampleClause,currentObjectTreeViewItem);
 								//  -- Processing of set_TableSampleClause
+
+								ProcessTSQLFragment(currentFragment.TemporalClause,currentObjectTreeViewItem);
+								//  -- Processing of set_TemporalClause
 
 								//  -- Processing of Accept
 
@@ -8269,6 +8707,9 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Into,currentObjectTreeViewItem);
 								//  -- Processing of set_Into
 
+								ProcessTSQLFragment(currentFragment.On,currentObjectTreeViewItem);
+								//  -- Processing of set_On
+
 								
 								{
 									var newItem=AddTSqlFragment("ComputeClauses"+"["+currentFragment.ComputeClauses.Count.ToString()+"]",null, currentObjectTreeViewItem);
@@ -8648,6 +9089,167 @@ namespace DacpacExplorer.TSqlFragmentProcess
 			 private void DisplayXmlForClauseOption(Microsoft.SqlServer.TransactSql.ScriptDom.XmlForClauseOption currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("XmlForClauseOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								ProcessTSQLFragment(currentFragment.Value,currentObjectTreeViewItem);
+								//  -- Processing of set_Value
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayJsonForClause(Microsoft.SqlServer.TransactSql.ScriptDom.JsonForClause currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("JsonForClause");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								
+								{
+									var newItem=AddTSqlFragment("Options"+"["+currentFragment.Options.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Options){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayJsonForClauseOption(Microsoft.SqlServer.TransactSql.ScriptDom.JsonForClauseOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("JsonForClauseOption");
 						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
                         COD.Properties = panel;
 								//  -- Non Ilist Processing of get_OptionKind
@@ -9173,6 +9775,95 @@ namespace DacpacExplorer.TSqlFragmentProcess
 									panel.Children.Add(p);							
 								}
 								//  -- Processing of set_IsForUnknown
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_HintKind
+								{
+									string Proc = "HintKind";
+									string Val = currentFragment.HintKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_HintKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayUseHintList(Microsoft.SqlServer.TransactSql.ScriptDom.UseHintList currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("UseHintList");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								
+								{
+									var newItem=AddTSqlFragment("Hints"+"["+currentFragment.Hints.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Hints){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
 
 								//  -- Processing of Accept
 
@@ -10351,6 +11042,95 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 
 
+			 private void DisplayOpenJsonTableReference(Microsoft.SqlServer.TransactSql.ScriptDom.OpenJsonTableReference currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("OpenJsonTableReference");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Variable,currentObjectTreeViewItem);
+								//  -- Processing of set_Variable
+
+								ProcessTSQLFragment(currentFragment.RowPattern,currentObjectTreeViewItem);
+								//  -- Processing of set_RowPattern
+
+								
+								{
+									var newItem=AddTSqlFragment("SchemaDeclarationItems"+"["+currentFragment.SchemaDeclarationItems.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.SchemaDeclarationItems){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Alias,currentObjectTreeViewItem);
+								//  -- Processing of set_Alias
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
 			 private void DisplayOpenRowsetTableReference(Microsoft.SqlServer.TransactSql.ScriptDom.OpenRowsetTableReference currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("OpenRowsetTableReference");
@@ -10858,6 +11638,90 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 
 
+			 private void DisplaySchemaDeclarationItemOpenjson(Microsoft.SqlServer.TransactSql.ScriptDom.SchemaDeclarationItemOpenjson currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("SchemaDeclarationItemOpenjson");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_AsJson
+								{
+									string Proc = "AsJson";
+									string Val = currentFragment.AsJson.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_AsJson
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.ColumnDefinition,currentObjectTreeViewItem);
+								//  -- Processing of set_ColumnDefinition
+
+								ProcessTSQLFragment(currentFragment.Mapping,currentObjectTreeViewItem);
+								//  -- Processing of set_Mapping
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
 			 private void DisplayConvertCall(Microsoft.SqlServer.TransactSql.ScriptDom.ConvertCall currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ConvertCall");
@@ -11270,6 +12134,84 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.Parameter,currentObjectTreeViewItem);
 								//  -- Processing of set_Parameter
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Collation,currentObjectTreeViewItem);
+								//  -- Processing of set_Collation
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayAtTimeZoneCall(Microsoft.SqlServer.TransactSql.ScriptDom.AtTimeZoneCall currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AtTimeZoneCall");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.DateValue,currentObjectTreeViewItem);
+								//  -- Processing of set_DateValue
+
+								ProcessTSQLFragment(currentFragment.TimeZone,currentObjectTreeViewItem);
+								//  -- Processing of set_TimeZone
 
 								//  -- Processing of Accept
 
@@ -13741,6 +14683,112 @@ namespace DacpacExplorer.TSqlFragmentProcess
 			 private void DisplayCreateFunctionStatement(Microsoft.SqlServer.TransactSql.ScriptDom.CreateFunctionStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("CreateFunctionStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								ProcessTSQLFragment(currentFragment.ReturnType,currentObjectTreeViewItem);
+								//  -- Processing of set_ReturnType
+
+								
+								{
+									var newItem=AddTSqlFragment("Options"+"["+currentFragment.Options.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Options){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								ProcessTSQLFragment(currentFragment.OrderHint,currentObjectTreeViewItem);
+								//  -- Processing of set_OrderHint
+
+								
+								{
+									var newItem=AddTSqlFragment("Parameters"+"["+currentFragment.Parameters.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Parameters){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								ProcessTSQLFragment(currentFragment.StatementList,currentObjectTreeViewItem);
+								//  -- Processing of set_StatementList
+
+								ProcessTSQLFragment(currentFragment.MethodSpecifier,currentObjectTreeViewItem);
+								//  -- Processing of set_MethodSpecifier
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayCreateOrAlterFunctionStatement(Microsoft.SqlServer.TransactSql.ScriptDom.CreateOrAlterFunctionStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("CreateOrAlterFunctionStatement");
 						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
                         COD.Properties = panel;
 								//  -- Processing of Accept
@@ -18896,6 +19944,81 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 
 
+			 private void DisplayIdentifierOrScalarExpression(Microsoft.SqlServer.TransactSql.ScriptDom.IdentifierOrScalarExpression currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("IdentifierOrScalarExpression");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Identifier,currentObjectTreeViewItem);
+								//  -- Processing of set_Identifier
+
+								ProcessTSQLFragment(currentFragment.ScalarExpression,currentObjectTreeViewItem);
+								//  -- Processing of set_ScalarExpression
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
 			 private void DisplaySchemaObjectNameOrValueExpression(Microsoft.SqlServer.TransactSql.ScriptDom.SchemaObjectNameOrValueExpression currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("SchemaObjectNameOrValueExpression");
@@ -19740,6 +20863,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								}
 								}
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Processing of AcceptChildren
 
 								//  -- Processing of Accept
@@ -19823,6 +20955,3868 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								
 								}
 								}
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplaySecurityPolicyStatement(Microsoft.SqlServer.TransactSql.ScriptDom.SecurityPolicyStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("SecurityPolicyStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_NotForReplication
+								{
+									string Proc = "NotForReplication";
+									string Val = currentFragment.NotForReplication.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_NotForReplication
+
+								
+								{
+									var newItem=AddTSqlFragment("SecurityPolicyOptions"+"["+currentFragment.SecurityPolicyOptions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.SecurityPolicyOptions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								
+								{
+									var newItem=AddTSqlFragment("SecurityPredicateActions"+"["+currentFragment.SecurityPredicateActions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.SecurityPredicateActions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Non Ilist Processing of get_ActionType
+								{
+									string Proc = "ActionType";
+									string Val = currentFragment.ActionType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ActionType
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplaySecurityPredicateAction(Microsoft.SqlServer.TransactSql.ScriptDom.SecurityPredicateAction currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("SecurityPredicateAction");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_ActionType
+								{
+									string Proc = "ActionType";
+									string Val = currentFragment.ActionType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ActionType
+
+								//  -- Non Ilist Processing of get_SecurityPredicateType
+								{
+									string Proc = "SecurityPredicateType";
+									string Val = currentFragment.SecurityPredicateType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_SecurityPredicateType
+
+								ProcessTSQLFragment(currentFragment.FunctionCall,currentObjectTreeViewItem);
+								//  -- Processing of set_FunctionCall
+
+								ProcessTSQLFragment(currentFragment.TargetObjectName,currentObjectTreeViewItem);
+								//  -- Processing of set_TargetObjectName
+
+								//  -- Non Ilist Processing of get_SecurityPredicateOperation
+								{
+									string Proc = "SecurityPredicateOperation";
+									string Val = currentFragment.SecurityPredicateOperation.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_SecurityPredicateOperation
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplaySecurityPolicyOption(Microsoft.SqlServer.TransactSql.ScriptDom.SecurityPolicyOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("SecurityPolicyOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_OptionState
+								{
+									string Proc = "OptionState";
+									string Val = currentFragment.OptionState.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionState
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayCreateSecurityPolicyStatement(Microsoft.SqlServer.TransactSql.ScriptDom.CreateSecurityPolicyStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("CreateSecurityPolicyStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_NotForReplication
+								{
+									string Proc = "NotForReplication";
+									string Val = currentFragment.NotForReplication.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_NotForReplication
+
+								
+								{
+									var newItem=AddTSqlFragment("SecurityPolicyOptions"+"["+currentFragment.SecurityPolicyOptions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.SecurityPolicyOptions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								
+								{
+									var newItem=AddTSqlFragment("SecurityPredicateActions"+"["+currentFragment.SecurityPredicateActions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.SecurityPredicateActions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Non Ilist Processing of get_ActionType
+								{
+									string Proc = "ActionType";
+									string Val = currentFragment.ActionType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ActionType
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayAlterSecurityPolicyStatement(Microsoft.SqlServer.TransactSql.ScriptDom.AlterSecurityPolicyStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AlterSecurityPolicyStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_NotForReplication
+								{
+									string Proc = "NotForReplication";
+									string Val = currentFragment.NotForReplication.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_NotForReplication
+
+								
+								{
+									var newItem=AddTSqlFragment("SecurityPolicyOptions"+"["+currentFragment.SecurityPolicyOptions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.SecurityPolicyOptions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								
+								{
+									var newItem=AddTSqlFragment("SecurityPredicateActions"+"["+currentFragment.SecurityPredicateActions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.SecurityPredicateActions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Non Ilist Processing of get_ActionType
+								{
+									string Proc = "ActionType";
+									string Val = currentFragment.ActionType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ActionType
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayDropSecurityPolicyStatement(Microsoft.SqlServer.TransactSql.ScriptDom.DropSecurityPolicyStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("DropSecurityPolicyStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								
+								{
+									var newItem=AddTSqlFragment("Objects"+"["+currentFragment.Objects.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Objects){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayCreateColumnMasterKeyStatement(Microsoft.SqlServer.TransactSql.ScriptDom.CreateColumnMasterKeyStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("CreateColumnMasterKeyStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								
+								{
+									var newItem=AddTSqlFragment("Parameters"+"["+currentFragment.Parameters.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Parameters){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayColumnMasterKeyParameter(Microsoft.SqlServer.TransactSql.ScriptDom.ColumnMasterKeyParameter currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ColumnMasterKeyParameter");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_ParameterKind
+								{
+									string Proc = "ParameterKind";
+									string Val = currentFragment.ParameterKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ParameterKind
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayColumnMasterKeyStoreProviderNameParameter(Microsoft.SqlServer.TransactSql.ScriptDom.ColumnMasterKeyStoreProviderNameParameter currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ColumnMasterKeyStoreProviderNameParameter");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_ParameterKind
+								{
+									string Proc = "ParameterKind";
+									string Val = currentFragment.ParameterKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ParameterKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayColumnMasterKeyPathParameter(Microsoft.SqlServer.TransactSql.ScriptDom.ColumnMasterKeyPathParameter currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ColumnMasterKeyPathParameter");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Path,currentObjectTreeViewItem);
+								//  -- Processing of set_Path
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_ParameterKind
+								{
+									string Proc = "ParameterKind";
+									string Val = currentFragment.ParameterKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ParameterKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayDropUnownedObjectStatement(Microsoft.SqlServer.TransactSql.ScriptDom.DropUnownedObjectStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("DropUnownedObjectStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayDropColumnMasterKeyStatement(Microsoft.SqlServer.TransactSql.ScriptDom.DropColumnMasterKeyStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("DropColumnMasterKeyStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayColumnEncryptionKeyStatement(Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionKeyStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ColumnEncryptionKeyStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								
+								{
+									var newItem=AddTSqlFragment("ColumnEncryptionKeyValues"+"["+currentFragment.ColumnEncryptionKeyValues.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.ColumnEncryptionKeyValues){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayCreateColumnEncryptionKeyStatement(Microsoft.SqlServer.TransactSql.ScriptDom.CreateColumnEncryptionKeyStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("CreateColumnEncryptionKeyStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								
+								{
+									var newItem=AddTSqlFragment("ColumnEncryptionKeyValues"+"["+currentFragment.ColumnEncryptionKeyValues.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.ColumnEncryptionKeyValues){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayAlterColumnEncryptionKeyStatement(Microsoft.SqlServer.TransactSql.ScriptDom.AlterColumnEncryptionKeyStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AlterColumnEncryptionKeyStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_AlterType
+								{
+									string Proc = "AlterType";
+									string Val = currentFragment.AlterType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_AlterType
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								
+								{
+									var newItem=AddTSqlFragment("ColumnEncryptionKeyValues"+"["+currentFragment.ColumnEncryptionKeyValues.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.ColumnEncryptionKeyValues){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayDropColumnEncryptionKeyStatement(Microsoft.SqlServer.TransactSql.ScriptDom.DropColumnEncryptionKeyStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("DropColumnEncryptionKeyStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayColumnEncryptionKeyValue(Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionKeyValue currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ColumnEncryptionKeyValue");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								
+								{
+									var newItem=AddTSqlFragment("Parameters"+"["+currentFragment.Parameters.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Parameters){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayColumnEncryptionKeyValueParameter(Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionKeyValueParameter currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ColumnEncryptionKeyValueParameter");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_ParameterKind
+								{
+									string Proc = "ParameterKind";
+									string Val = currentFragment.ParameterKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ParameterKind
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayColumnMasterKeyNameParameter(Microsoft.SqlServer.TransactSql.ScriptDom.ColumnMasterKeyNameParameter currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ColumnMasterKeyNameParameter");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_ParameterKind
+								{
+									string Proc = "ParameterKind";
+									string Val = currentFragment.ParameterKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ParameterKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayColumnEncryptionAlgorithmNameParameter(Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionAlgorithmNameParameter currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ColumnEncryptionAlgorithmNameParameter");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Algorithm,currentObjectTreeViewItem);
+								//  -- Processing of set_Algorithm
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_ParameterKind
+								{
+									string Proc = "ParameterKind";
+									string Val = currentFragment.ParameterKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ParameterKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayEncryptedValueParameter(Microsoft.SqlServer.TransactSql.ScriptDom.EncryptedValueParameter currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("EncryptedValueParameter");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Value,currentObjectTreeViewItem);
+								//  -- Processing of set_Value
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_ParameterKind
+								{
+									string Proc = "ParameterKind";
+									string Val = currentFragment.ParameterKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ParameterKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalTableStatement(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalTableStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.SchemaObjectName,currentObjectTreeViewItem);
+								//  -- Processing of set_SchemaObjectName
+
+								
+								{
+									var newItem=AddTSqlFragment("ColumnDefinitions"+"["+currentFragment.ColumnDefinitions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.ColumnDefinitions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								ProcessTSQLFragment(currentFragment.DataSource,currentObjectTreeViewItem);
+								//  -- Processing of set_DataSource
+
+								
+								{
+									var newItem=AddTSqlFragment("ExternalTableOptions"+"["+currentFragment.ExternalTableOptions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.ExternalTableOptions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalTableOption(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalTableOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalTableLiteralOrIdentifierOption(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableLiteralOrIdentifierOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalTableLiteralOrIdentifierOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Value,currentObjectTreeViewItem);
+								//  -- Processing of set_Value
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalTableDistributionOption(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableDistributionOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalTableDistributionOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Value,currentObjectTreeViewItem);
+								//  -- Processing of set_Value
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalTableRejectTypeOption(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableRejectTypeOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalTableRejectTypeOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_Value
+								{
+									string Proc = "Value";
+									string Val = currentFragment.Value.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Value
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalTableDistributionPolicy(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableDistributionPolicy currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalTableDistributionPolicy");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalTableReplicatedDistributionPolicy(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableReplicatedDistributionPolicy currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalTableReplicatedDistributionPolicy");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalTableRoundRobinDistributionPolicy(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableRoundRobinDistributionPolicy currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalTableRoundRobinDistributionPolicy");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalTableShardedDistributionPolicy(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableShardedDistributionPolicy currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalTableShardedDistributionPolicy");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.ShardingColumn,currentObjectTreeViewItem);
+								//  -- Processing of set_ShardingColumn
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayCreateExternalTableStatement(Microsoft.SqlServer.TransactSql.ScriptDom.CreateExternalTableStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("CreateExternalTableStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.SchemaObjectName,currentObjectTreeViewItem);
+								//  -- Processing of set_SchemaObjectName
+
+								
+								{
+									var newItem=AddTSqlFragment("ColumnDefinitions"+"["+currentFragment.ColumnDefinitions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.ColumnDefinitions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								ProcessTSQLFragment(currentFragment.DataSource,currentObjectTreeViewItem);
+								//  -- Processing of set_DataSource
+
+								
+								{
+									var newItem=AddTSqlFragment("ExternalTableOptions"+"["+currentFragment.ExternalTableOptions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.ExternalTableOptions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayDropExternalTableStatement(Microsoft.SqlServer.TransactSql.ScriptDom.DropExternalTableStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("DropExternalTableStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								
+								{
+									var newItem=AddTSqlFragment("Objects"+"["+currentFragment.Objects.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Objects){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalDataSourceStatement(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalDataSourceStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalDataSourceStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_DataSourceType
+								{
+									string Proc = "DataSourceType";
+									string Val = currentFragment.DataSourceType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_DataSourceType
+
+								ProcessTSQLFragment(currentFragment.Location,currentObjectTreeViewItem);
+								//  -- Processing of set_Location
+
+								
+								{
+									var newItem=AddTSqlFragment("ExternalDataSourceOptions"+"["+currentFragment.ExternalDataSourceOptions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.ExternalDataSourceOptions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalDataSourceOption(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalDataSourceOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalDataSourceOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalDataSourceLiteralOrIdentifierOption(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalDataSourceLiteralOrIdentifierOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalDataSourceLiteralOrIdentifierOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Value,currentObjectTreeViewItem);
+								//  -- Processing of set_Value
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayCreateExternalDataSourceStatement(Microsoft.SqlServer.TransactSql.ScriptDom.CreateExternalDataSourceStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("CreateExternalDataSourceStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_DataSourceType
+								{
+									string Proc = "DataSourceType";
+									string Val = currentFragment.DataSourceType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_DataSourceType
+
+								ProcessTSQLFragment(currentFragment.Location,currentObjectTreeViewItem);
+								//  -- Processing of set_Location
+
+								
+								{
+									var newItem=AddTSqlFragment("ExternalDataSourceOptions"+"["+currentFragment.ExternalDataSourceOptions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.ExternalDataSourceOptions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayAlterExternalDataSourceStatement(Microsoft.SqlServer.TransactSql.ScriptDom.AlterExternalDataSourceStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AlterExternalDataSourceStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_DataSourceType
+								{
+									string Proc = "DataSourceType";
+									string Val = currentFragment.DataSourceType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_DataSourceType
+
+								ProcessTSQLFragment(currentFragment.Location,currentObjectTreeViewItem);
+								//  -- Processing of set_Location
+
+								
+								{
+									var newItem=AddTSqlFragment("ExternalDataSourceOptions"+"["+currentFragment.ExternalDataSourceOptions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.ExternalDataSourceOptions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayDropExternalDataSourceStatement(Microsoft.SqlServer.TransactSql.ScriptDom.DropExternalDataSourceStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("DropExternalDataSourceStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalFileFormatStatement(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalFileFormatStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalFileFormatStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_FormatType
+								{
+									string Proc = "FormatType";
+									string Val = currentFragment.FormatType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FormatType
+
+								
+								{
+									var newItem=AddTSqlFragment("ExternalFileFormatOptions"+"["+currentFragment.ExternalFileFormatOptions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.ExternalFileFormatOptions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalFileFormatOption(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalFileFormatOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalFileFormatOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalFileFormatLiteralOption(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalFileFormatLiteralOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalFileFormatLiteralOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Value,currentObjectTreeViewItem);
+								//  -- Processing of set_Value
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalFileFormatUseDefaultTypeOption(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalFileFormatUseDefaultTypeOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalFileFormatUseDefaultTypeOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_ExternalFileFormatUseDefaultType
+								{
+									string Proc = "ExternalFileFormatUseDefaultType";
+									string Val = currentFragment.ExternalFileFormatUseDefaultType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ExternalFileFormatUseDefaultType
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalFileFormatContainerOption(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalFileFormatContainerOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalFileFormatContainerOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								
+								{
+									var newItem=AddTSqlFragment("Suboptions"+"["+currentFragment.Suboptions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Suboptions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayCreateExternalFileFormatStatement(Microsoft.SqlServer.TransactSql.ScriptDom.CreateExternalFileFormatStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("CreateExternalFileFormatStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_FormatType
+								{
+									string Proc = "FormatType";
+									string Val = currentFragment.FormatType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FormatType
+
+								
+								{
+									var newItem=AddTSqlFragment("ExternalFileFormatOptions"+"["+currentFragment.ExternalFileFormatOptions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.ExternalFileFormatOptions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayDropExternalFileFormatStatement(Microsoft.SqlServer.TransactSql.ScriptDom.DropExternalFileFormatStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("DropExternalFileFormatStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -20896,6 +25890,90 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 
 
+			 private void DisplayAlterTableAlterPartitionStatement(Microsoft.SqlServer.TransactSql.ScriptDom.AlterTableAlterPartitionStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AlterTableAlterPartitionStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.BoundaryValue,currentObjectTreeViewItem);
+								//  -- Processing of set_BoundaryValue
+
+								//  -- Non Ilist Processing of get_IsSplit
+								{
+									string Proc = "IsSplit";
+									string Val = currentFragment.IsSplit.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsSplit
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.SchemaObjectName,currentObjectTreeViewItem);
+								//  -- Processing of set_SchemaObjectName
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
 			 private void DisplayAlterTableRebuildStatement(Microsoft.SqlServer.TransactSql.ScriptDom.AlterTableRebuildStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AlterTableRebuildStatement");
@@ -21899,6 +26977,914 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 
 
+			 private void DisplayRemoteDataArchiveTableOption(Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveTableOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("RemoteDataArchiveTableOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_RdaTableOption
+								{
+									string Proc = "RdaTableOption";
+									string Val = currentFragment.RdaTableOption.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_RdaTableOption
+
+								//  -- Non Ilist Processing of get_MigrationState
+								{
+									string Proc = "MigrationState";
+									string Val = currentFragment.MigrationState.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_MigrationState
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayRemoteDataArchiveAlterTableOption(Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveAlterTableOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("RemoteDataArchiveAlterTableOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_RdaTableOption
+								{
+									string Proc = "RdaTableOption";
+									string Val = currentFragment.RdaTableOption.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_RdaTableOption
+
+								//  -- Non Ilist Processing of get_MigrationState
+								{
+									string Proc = "MigrationState";
+									string Val = currentFragment.MigrationState.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_MigrationState
+
+								//  -- Non Ilist Processing of get_IsMigrationStateSpecified
+								{
+									string Proc = "IsMigrationStateSpecified";
+									string Val = currentFragment.IsMigrationStateSpecified.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsMigrationStateSpecified
+
+								//  -- Non Ilist Processing of get_IsFilterPredicateSpecified
+								{
+									string Proc = "IsFilterPredicateSpecified";
+									string Val = currentFragment.IsFilterPredicateSpecified.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsFilterPredicateSpecified
+
+								ProcessTSQLFragment(currentFragment.FilterPredicate,currentObjectTreeViewItem);
+								//  -- Processing of set_FilterPredicate
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayDatabaseOption(Microsoft.SqlServer.TransactSql.ScriptDom.DatabaseOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("DatabaseOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayRemoteDataArchiveDatabaseOption(Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveDatabaseOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("RemoteDataArchiveDatabaseOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_OptionState
+								{
+									string Proc = "OptionState";
+									string Val = currentFragment.OptionState.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionState
+
+								
+								{
+									var newItem=AddTSqlFragment("Settings"+"["+currentFragment.Settings.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Settings){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayRemoteDataArchiveDatabaseSetting(Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveDatabaseSetting currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("RemoteDataArchiveDatabaseSetting");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_SettingKind
+								{
+									string Proc = "SettingKind";
+									string Val = currentFragment.SettingKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_SettingKind
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayRemoteDataArchiveDbServerSetting(Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveDbServerSetting currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("RemoteDataArchiveDbServerSetting");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Server,currentObjectTreeViewItem);
+								//  -- Processing of set_Server
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_SettingKind
+								{
+									string Proc = "SettingKind";
+									string Val = currentFragment.SettingKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_SettingKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayRemoteDataArchiveDbCredentialSetting(Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveDbCredentialSetting currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("RemoteDataArchiveDbCredentialSetting");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Credential,currentObjectTreeViewItem);
+								//  -- Processing of set_Credential
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_SettingKind
+								{
+									string Proc = "SettingKind";
+									string Val = currentFragment.SettingKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_SettingKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayRemoteDataArchiveDbFederatedServiceAccountSetting(Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveDbFederatedServiceAccountSetting currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("RemoteDataArchiveDbFederatedServiceAccountSetting");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_IsOn
+								{
+									string Proc = "IsOn";
+									string Val = currentFragment.IsOn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsOn
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_SettingKind
+								{
+									string Proc = "SettingKind";
+									string Val = currentFragment.SettingKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_SettingKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayRetentionPeriodDefinition(Microsoft.SqlServer.TransactSql.ScriptDom.RetentionPeriodDefinition currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("RetentionPeriodDefinition");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Duration,currentObjectTreeViewItem);
+								//  -- Processing of set_Duration
+
+								//  -- Non Ilist Processing of get_Units
+								{
+									string Proc = "Units";
+									string Val = currentFragment.Units.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Units
+
+								//  -- Non Ilist Processing of get_IsInfinity
+								{
+									string Proc = "IsInfinity";
+									string Val = currentFragment.IsInfinity.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsInfinity
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplaySystemVersioningTableOption(Microsoft.SqlServer.TransactSql.ScriptDom.SystemVersioningTableOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("SystemVersioningTableOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_OptionState
+								{
+									string Proc = "OptionState";
+									string Val = currentFragment.OptionState.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionState
+
+								//  -- Non Ilist Processing of get_ConsistencyCheckEnabled
+								{
+									string Proc = "ConsistencyCheckEnabled";
+									string Val = currentFragment.ConsistencyCheckEnabled.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ConsistencyCheckEnabled
+
+								ProcessTSQLFragment(currentFragment.HistoryTable,currentObjectTreeViewItem);
+								//  -- Processing of set_HistoryTable
+
+								ProcessTSQLFragment(currentFragment.RetentionPeriod,currentObjectTreeViewItem);
+								//  -- Processing of set_RetentionPeriod
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
 			 private void DisplayAlterTableAddTableElementStatement(Microsoft.SqlServer.TransactSql.ScriptDom.AlterTableAddTableElementStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AlterTableAddTableElementStatement");
@@ -22679,6 +28665,95 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 
 
+			 private void DisplayDropClusteredConstraintWaitAtLowPriorityLockOption(Microsoft.SqlServer.TransactSql.ScriptDom.DropClusteredConstraintWaitAtLowPriorityLockOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("DropClusteredConstraintWaitAtLowPriorityLockOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								
+								{
+									var newItem=AddTSqlFragment("Options"+"["+currentFragment.Options.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Options){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
 			 private void DisplayAlterTableDropTableElement(Microsoft.SqlServer.TransactSql.ScriptDom.AlterTableDropTableElement currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AlterTableDropTableElement");
@@ -22706,6 +28781,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								
 								}
 								}
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Processing of Accept
 
@@ -24513,6 +30597,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_Unique
+								{
+									string Proc = "Unique";
+									string Val = currentFragment.Unique.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Unique
+
 								ProcessTSQLFragment(currentFragment.IndexType,currentObjectTreeViewItem);
 								//  -- Processing of set_IndexType
 
@@ -24541,8 +30634,86 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.OnFileGroupOrPartitionScheme,currentObjectTreeViewItem);
 								//  -- Processing of set_OnFileGroupOrPartitionScheme
 
+								ProcessTSQLFragment(currentFragment.FilterPredicate,currentObjectTreeViewItem);
+								//  -- Processing of set_FilterPredicate
+
 								ProcessTSQLFragment(currentFragment.FileStreamOn,currentObjectTreeViewItem);
 								//  -- Processing of set_FileStreamOn
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplaySystemTimePeriodDefinition(Microsoft.SqlServer.TransactSql.ScriptDom.SystemTimePeriodDefinition currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("SystemTimePeriodDefinition");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.StartTimeColumn,currentObjectTreeViewItem);
+								//  -- Processing of set_StartTimeColumn
+
+								ProcessTSQLFragment(currentFragment.EndTimeColumn,currentObjectTreeViewItem);
+								//  -- Processing of set_EndTimeColumn
 
 								//  -- Processing of Accept
 
@@ -25675,6 +31846,185 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 
 
+			 private void DisplayMaxDurationOption(Microsoft.SqlServer.TransactSql.ScriptDom.MaxDurationOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("MaxDurationOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.MaxDuration,currentObjectTreeViewItem);
+								//  -- Processing of set_MaxDuration
+
+								//  -- Non Ilist Processing of get_Unit
+								{
+									string Proc = "Unit";
+									string Val = currentFragment.Unit.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Unit
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayWaitAtLowPriorityOption(Microsoft.SqlServer.TransactSql.ScriptDom.WaitAtLowPriorityOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("WaitAtLowPriorityOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								
+								{
+									var newItem=AddTSqlFragment("Options"+"["+currentFragment.Options.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Options){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
 			 private void DisplayOnlineIndexOption(Microsoft.SqlServer.TransactSql.ScriptDom.OnlineIndexOption currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("OnlineIndexOption");
@@ -25695,6 +32045,191 @@ namespace DacpacExplorer.TSqlFragmentProcess
 									panel.Children.Add(p);							
 								}
 								//  -- Processing of set_OptionState
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayIgnoreDupKeyIndexOption(Microsoft.SqlServer.TransactSql.ScriptDom.IgnoreDupKeyIndexOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("IgnoreDupKeyIndexOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_SuppressMessagesOption
+								{
+									string Proc = "SuppressMessagesOption";
+									string Val = currentFragment.SuppressMessagesOption.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_SuppressMessagesOption
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionState
+								{
+									string Proc = "OptionState";
+									string Val = currentFragment.OptionState.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionState
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayOrderIndexOption(Microsoft.SqlServer.TransactSql.ScriptDom.OrderIndexOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("OrderIndexOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								
+								{
+									var newItem=AddTSqlFragment("Columns"+"["+currentFragment.Columns.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Columns){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
 
 								//  -- Non Ilist Processing of get_OptionKind
 								{
@@ -28335,78 +34870,6 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 
 
-			 private void DisplayDropUnownedObjectStatement(Microsoft.SqlServer.TransactSql.ScriptDom.DropUnownedObjectStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
-	        {
-						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("DropUnownedObjectStatement");
-						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
-                        COD.Properties = panel;
-								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
-								//  -- Processing of set_Name
-
-								//  -- Processing of AcceptChildren
-
-								//  -- Processing of Accept
-
-								//  -- Non Ilist Processing of get_StartOffset
-								{
-									string Proc = "StartOffset";
-									string Val = currentFragment.StartOffset.ToString();
-									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
-									panel.Children.Add(p);							
-								}
-								//  -- Non Ilist Processing of get_FragmentLength
-								{
-									string Proc = "FragmentLength";
-									string Val = currentFragment.FragmentLength.ToString();
-									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
-									panel.Children.Add(p);							
-								}
-								//  -- Non Ilist Processing of get_StartLine
-								{
-									string Proc = "StartLine";
-									string Val = currentFragment.StartLine.ToString();
-									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
-									panel.Children.Add(p);							
-								}
-								//  -- Non Ilist Processing of get_StartColumn
-								{
-									string Proc = "StartColumn";
-									string Val = currentFragment.StartColumn.ToString();
-									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
-									panel.Children.Add(p);							
-								}
-								//  -- Non Ilist Processing of get_FirstTokenIndex
-								{
-									string Proc = "FirstTokenIndex";
-									string Val = currentFragment.FirstTokenIndex.ToString();
-									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
-									panel.Children.Add(p);							
-								}
-								//  -- Processing of set_FirstTokenIndex
-
-								//  -- Non Ilist Processing of get_LastTokenIndex
-								{
-									string Proc = "LastTokenIndex";
-									string Val = currentFragment.LastTokenIndex.ToString();
-									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
-									panel.Children.Add(p);							
-								}
-								//  -- Processing of set_LastTokenIndex
-
-								//  -- Processing of set_ScriptTokenStream
-
-								//  -- Processing of ToString
-
-								//  -- Processing of Equals
-
-								//  -- Processing of GetHashCode
-
-								//  -- Processing of GetType
-
-			} // End
-
-
-
 			 private void DisplayDropServerRoleStatement(Microsoft.SqlServer.TransactSql.ScriptDom.DropServerRoleStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("DropServerRoleStatement");
@@ -28418,6 +34881,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -30851,6 +37323,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								}
 								}
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Processing of Accept
 
 								//  -- Processing of AcceptChildren
@@ -31010,6 +37491,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								
 								}
 								}
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Processing of Accept
 
@@ -31564,6 +38054,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								}
 								}
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -31643,6 +38142,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								
 								}
 								}
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -31724,6 +38232,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								}
 								}
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -31803,6 +38320,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								
 								}
 								}
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -31884,6 +38410,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								}
 								}
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -31963,6 +38498,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								
 								}
 								}
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -32053,6 +38597,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								}
 								}
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -32129,6 +38682,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 									panel.Children.Add(p);							
 								}
 								//  -- Processing of set_DropBehavior
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Processing of Accept
 
@@ -33067,6 +39629,17 @@ namespace DacpacExplorer.TSqlFragmentProcess
                         COD.Properties = panel;
 								ProcessTSQLFragment(currentFragment.TableName,currentObjectTreeViewItem);
 								//  -- Processing of set_TableName
+
+								
+								{
+									var newItem=AddTSqlFragment("PartitionRanges"+"["+currentFragment.PartitionRanges.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.PartitionRanges){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
 
 								//  -- Processing of Accept
 
@@ -35088,6 +41661,675 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 
 
+			 private void DisplayAlterDatabaseScopedConfigurationStatement(Microsoft.SqlServer.TransactSql.ScriptDom.AlterDatabaseScopedConfigurationStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AlterDatabaseScopedConfigurationStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_Secondary
+								{
+									string Proc = "Secondary";
+									string Val = currentFragment.Secondary.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Secondary
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayAlterDatabaseScopedConfigurationSetStatement(Microsoft.SqlServer.TransactSql.ScriptDom.AlterDatabaseScopedConfigurationSetStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AlterDatabaseScopedConfigurationSetStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Option,currentObjectTreeViewItem);
+								//  -- Processing of set_Option
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_Secondary
+								{
+									string Proc = "Secondary";
+									string Val = currentFragment.Secondary.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Secondary
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayAlterDatabaseScopedConfigurationClearStatement(Microsoft.SqlServer.TransactSql.ScriptDom.AlterDatabaseScopedConfigurationClearStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AlterDatabaseScopedConfigurationClearStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Option,currentObjectTreeViewItem);
+								//  -- Processing of set_Option
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_Secondary
+								{
+									string Proc = "Secondary";
+									string Val = currentFragment.Secondary.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Secondary
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayDatabaseConfigurationClearOption(Microsoft.SqlServer.TransactSql.ScriptDom.DatabaseConfigurationClearOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("DatabaseConfigurationClearOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								ProcessTSQLFragment(currentFragment.PlanHandle,currentObjectTreeViewItem);
+								//  -- Processing of set_PlanHandle
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayDatabaseConfigurationSetOption(Microsoft.SqlServer.TransactSql.ScriptDom.DatabaseConfigurationSetOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("DatabaseConfigurationSetOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								ProcessTSQLFragment(currentFragment.GenericOptionKind,currentObjectTreeViewItem);
+								//  -- Processing of set_GenericOptionKind
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayOnOffPrimaryConfigurationOption(Microsoft.SqlServer.TransactSql.ScriptDom.OnOffPrimaryConfigurationOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("OnOffPrimaryConfigurationOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_OptionState
+								{
+									string Proc = "OptionState";
+									string Val = currentFragment.OptionState.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionState
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								ProcessTSQLFragment(currentFragment.GenericOptionKind,currentObjectTreeViewItem);
+								//  -- Processing of set_GenericOptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayMaxDopConfigurationOption(Microsoft.SqlServer.TransactSql.ScriptDom.MaxDopConfigurationOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("MaxDopConfigurationOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Value,currentObjectTreeViewItem);
+								//  -- Processing of set_Value
+
+								//  -- Non Ilist Processing of get_Primary
+								{
+									string Proc = "Primary";
+									string Val = currentFragment.Primary.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Primary
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								ProcessTSQLFragment(currentFragment.GenericOptionKind,currentObjectTreeViewItem);
+								//  -- Processing of set_GenericOptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayGenericConfigurationOption(Microsoft.SqlServer.TransactSql.ScriptDom.GenericConfigurationOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("GenericConfigurationOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.GenericOptionState,currentObjectTreeViewItem);
+								//  -- Processing of set_GenericOptionState
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								ProcessTSQLFragment(currentFragment.GenericOptionKind,currentObjectTreeViewItem);
+								//  -- Processing of set_GenericOptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
 			 private void DisplayAlterDatabaseCollateStatement(Microsoft.SqlServer.TransactSql.ScriptDom.AlterDatabaseCollateStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AlterDatabaseCollateStatement");
@@ -36030,84 +43272,6 @@ namespace DacpacExplorer.TSqlFragmentProcess
 									panel.Children.Add(p);							
 								}
 								//  -- Processing of set_UseCurrent
-
-								//  -- Non Ilist Processing of get_StartOffset
-								{
-									string Proc = "StartOffset";
-									string Val = currentFragment.StartOffset.ToString();
-									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
-									panel.Children.Add(p);							
-								}
-								//  -- Non Ilist Processing of get_FragmentLength
-								{
-									string Proc = "FragmentLength";
-									string Val = currentFragment.FragmentLength.ToString();
-									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
-									panel.Children.Add(p);							
-								}
-								//  -- Non Ilist Processing of get_StartLine
-								{
-									string Proc = "StartLine";
-									string Val = currentFragment.StartLine.ToString();
-									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
-									panel.Children.Add(p);							
-								}
-								//  -- Non Ilist Processing of get_StartColumn
-								{
-									string Proc = "StartColumn";
-									string Val = currentFragment.StartColumn.ToString();
-									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
-									panel.Children.Add(p);							
-								}
-								//  -- Non Ilist Processing of get_FirstTokenIndex
-								{
-									string Proc = "FirstTokenIndex";
-									string Val = currentFragment.FirstTokenIndex.ToString();
-									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
-									panel.Children.Add(p);							
-								}
-								//  -- Processing of set_FirstTokenIndex
-
-								//  -- Non Ilist Processing of get_LastTokenIndex
-								{
-									string Proc = "LastTokenIndex";
-									string Val = currentFragment.LastTokenIndex.ToString();
-									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
-									panel.Children.Add(p);							
-								}
-								//  -- Processing of set_LastTokenIndex
-
-								//  -- Processing of set_ScriptTokenStream
-
-								//  -- Processing of ToString
-
-								//  -- Processing of Equals
-
-								//  -- Processing of GetHashCode
-
-								//  -- Processing of GetType
-
-			} // End
-
-
-
-			 private void DisplayDatabaseOption(Microsoft.SqlServer.TransactSql.ScriptDom.DatabaseOption currentFragment, TreeViewItem currentObjectTreeViewItem)
-	        {
-						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("DatabaseOption");
-						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
-                        COD.Properties = panel;
-								//  -- Non Ilist Processing of get_OptionKind
-								{
-									string Proc = "OptionKind";
-									string Val = currentFragment.OptionKind.ToString();
-									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
-									panel.Children.Add(p);							
-								}
-								//  -- Processing of set_OptionKind
-
-								//  -- Processing of Accept
-
-								//  -- Processing of AcceptChildren
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -37821,6 +44985,1408 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 
 
+			 private void DisplayQueryStoreDatabaseOption(Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreDatabaseOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("QueryStoreDatabaseOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_Clear
+								{
+									string Proc = "Clear";
+									string Val = currentFragment.Clear.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Clear
+
+								//  -- Non Ilist Processing of get_ClearAll
+								{
+									string Proc = "ClearAll";
+									string Val = currentFragment.ClearAll.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ClearAll
+
+								//  -- Non Ilist Processing of get_OptionState
+								{
+									string Proc = "OptionState";
+									string Val = currentFragment.OptionState.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionState
+
+								
+								{
+									var newItem=AddTSqlFragment("Options"+"["+currentFragment.Options.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Options){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayQueryStoreOption(Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("QueryStoreOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayQueryStoreDesiredStateOption(Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreDesiredStateOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("QueryStoreDesiredStateOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_Value
+								{
+									string Proc = "Value";
+									string Val = currentFragment.Value.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Value
+
+								//  -- Non Ilist Processing of get_OperationModeSpecified
+								{
+									string Proc = "OperationModeSpecified";
+									string Val = currentFragment.OperationModeSpecified.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OperationModeSpecified
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayQueryStoreCapturePolicyOption(Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreCapturePolicyOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("QueryStoreCapturePolicyOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_Value
+								{
+									string Proc = "Value";
+									string Val = currentFragment.Value.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Value
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayQueryStoreSizeCleanupPolicyOption(Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreSizeCleanupPolicyOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("QueryStoreSizeCleanupPolicyOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_Value
+								{
+									string Proc = "Value";
+									string Val = currentFragment.Value.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Value
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayQueryStoreDataFlushIntervalOption(Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreDataFlushIntervalOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("QueryStoreDataFlushIntervalOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.FlushInterval,currentObjectTreeViewItem);
+								//  -- Processing of set_FlushInterval
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayQueryStoreIntervalLengthOption(Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreIntervalLengthOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("QueryStoreIntervalLengthOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.StatsIntervalLength,currentObjectTreeViewItem);
+								//  -- Processing of set_StatsIntervalLength
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayQueryStoreMaxStorageSizeOption(Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreMaxStorageSizeOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("QueryStoreMaxStorageSizeOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.MaxQdsSize,currentObjectTreeViewItem);
+								//  -- Processing of set_MaxQdsSize
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayQueryStoreMaxPlansPerQueryOption(Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreMaxPlansPerQueryOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("QueryStoreMaxPlansPerQueryOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.MaxPlansPerQuery,currentObjectTreeViewItem);
+								//  -- Processing of set_MaxPlansPerQuery
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayQueryStoreTimeCleanupPolicyOption(Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreTimeCleanupPolicyOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("QueryStoreTimeCleanupPolicyOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.StaleQueryThreshold,currentObjectTreeViewItem);
+								//  -- Processing of set_StaleQueryThreshold
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayAutomaticTuningDatabaseOption(Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningDatabaseOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AutomaticTuningDatabaseOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_AutomaticTuningState
+								{
+									string Proc = "AutomaticTuningState";
+									string Val = currentFragment.AutomaticTuningState.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_AutomaticTuningState
+
+								
+								{
+									var newItem=AddTSqlFragment("Options"+"["+currentFragment.Options.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Options){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayAutomaticTuningOption(Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AutomaticTuningOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_Value
+								{
+									string Proc = "Value";
+									string Val = currentFragment.Value.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Value
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayAutomaticTuningForceLastGoodPlanOption(Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningForceLastGoodPlanOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AutomaticTuningForceLastGoodPlanOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_Value
+								{
+									string Proc = "Value";
+									string Val = currentFragment.Value.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Value
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayAutomaticTuningCreateIndexOption(Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningCreateIndexOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AutomaticTuningCreateIndexOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_Value
+								{
+									string Proc = "Value";
+									string Val = currentFragment.Value.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Value
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayAutomaticTuningDropIndexOption(Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningDropIndexOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AutomaticTuningDropIndexOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_Value
+								{
+									string Proc = "Value";
+									string Val = currentFragment.Value.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Value
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayAutomaticTuningMaintainIndexOption(Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningMaintainIndexOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AutomaticTuningMaintainIndexOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_Value
+								{
+									string Proc = "Value";
+									string Val = currentFragment.Value.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Value
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
 			 private void DisplayFileStreamDatabaseOption(Microsoft.SqlServer.TransactSql.ScriptDom.FileStreamDatabaseOption currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("FileStreamDatabaseOption");
@@ -37837,6 +46403,93 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.DirectoryName,currentObjectTreeViewItem);
 								//  -- Processing of set_DirectoryName
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayCatalogCollationOption(Microsoft.SqlServer.TransactSql.ScriptDom.CatalogCollationOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("CatalogCollationOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_CatalogCollation
+								{
+									string Proc = "CatalogCollation";
+									string Val = currentFragment.CatalogCollation.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_CatalogCollation
 
 								//  -- Processing of Accept
 
@@ -38001,6 +46654,101 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 
 
+			 private void DisplayAlterTableAlterIndexStatement(Microsoft.SqlServer.TransactSql.ScriptDom.AlterTableAlterIndexStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AlterTableAlterIndexStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.IndexIdentifier,currentObjectTreeViewItem);
+								//  -- Processing of set_IndexIdentifier
+
+								//  -- Non Ilist Processing of get_AlterIndexType
+								{
+									string Proc = "AlterIndexType";
+									string Val = currentFragment.AlterIndexType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_AlterIndexType
+
+								
+								{
+									var newItem=AddTSqlFragment("IndexOptions"+"["+currentFragment.IndexOptions.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.IndexOptions){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.SchemaObjectName,currentObjectTreeViewItem);
+								//  -- Processing of set_SchemaObjectName
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
 			 private void DisplayAlterTableAlterColumnStatement(Microsoft.SqlServer.TransactSql.ScriptDom.AlterTableAlterColumnStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AlterTableAlterColumnStatement");
@@ -38024,8 +46772,52 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.StorageOptions,currentObjectTreeViewItem);
 								//  -- Processing of set_StorageOptions
 
+								
+								{
+									var newItem=AddTSqlFragment("Options"+"["+currentFragment.Options.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Options){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Non Ilist Processing of get_GeneratedAlways
+								{
+									string Proc = "GeneratedAlways";
+									string Val = currentFragment.GeneratedAlways.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_GeneratedAlways
+
+								//  -- Non Ilist Processing of get_IsHidden
+								{
+									string Proc = "IsHidden";
+									string Val = currentFragment.IsHidden.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsHidden
+
+								ProcessTSQLFragment(currentFragment.Encryption,currentObjectTreeViewItem);
+								//  -- Processing of set_Encryption
+
 								ProcessTSQLFragment(currentFragment.Collation,currentObjectTreeViewItem);
 								//  -- Processing of set_Collation
+
+								//  -- Non Ilist Processing of get_IsMasked
+								{
+									string Proc = "IsMasked";
+									string Val = currentFragment.IsMasked.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsMasked
+
+								ProcessTSQLFragment(currentFragment.MaskingFunction,currentObjectTreeViewItem);
+								//  -- Processing of set_MaskingFunction
 
 								//  -- Processing of Accept
 
@@ -38221,6 +47013,39 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Index,currentObjectTreeViewItem);
 								//  -- Processing of set_Index
 
+								//  -- Non Ilist Processing of get_GeneratedAlways
+								{
+									string Proc = "GeneratedAlways";
+									string Val = currentFragment.GeneratedAlways.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_GeneratedAlways
+
+								//  -- Non Ilist Processing of get_IsHidden
+								{
+									string Proc = "IsHidden";
+									string Val = currentFragment.IsHidden.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsHidden
+
+								ProcessTSQLFragment(currentFragment.Encryption,currentObjectTreeViewItem);
+								//  -- Processing of set_Encryption
+
+								//  -- Non Ilist Processing of get_IsMasked
+								{
+									string Proc = "IsMasked";
+									string Val = currentFragment.IsMasked.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsMasked
+
+								ProcessTSQLFragment(currentFragment.MaskingFunction,currentObjectTreeViewItem);
+								//  -- Processing of set_MaskingFunction
+
 								//  -- Processing of Accept
 
 								//  -- Processing of AcceptChildren
@@ -38233,6 +47058,413 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.Collation,currentObjectTreeViewItem);
 								//  -- Processing of set_Collation
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayColumnEncryptionDefinition(Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionDefinition currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ColumnEncryptionDefinition");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								
+								{
+									var newItem=AddTSqlFragment("Parameters"+"["+currentFragment.Parameters.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Parameters){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayColumnEncryptionDefinitionParameter(Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionDefinitionParameter currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ColumnEncryptionDefinitionParameter");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_ParameterKind
+								{
+									string Proc = "ParameterKind";
+									string Val = currentFragment.ParameterKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ParameterKind
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayColumnEncryptionKeyNameParameter(Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionKeyNameParameter currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ColumnEncryptionKeyNameParameter");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_ParameterKind
+								{
+									string Proc = "ParameterKind";
+									string Val = currentFragment.ParameterKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ParameterKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayColumnEncryptionTypeParameter(Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionTypeParameter currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ColumnEncryptionTypeParameter");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_EncryptionType
+								{
+									string Proc = "EncryptionType";
+									string Val = currentFragment.EncryptionType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_EncryptionType
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_ParameterKind
+								{
+									string Proc = "ParameterKind";
+									string Val = currentFragment.ParameterKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ParameterKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayColumnEncryptionAlgorithmParameter(Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionAlgorithmParameter currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ColumnEncryptionAlgorithmParameter");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.EncryptionAlgorithm,currentObjectTreeViewItem);
+								//  -- Processing of set_EncryptionAlgorithm
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_ParameterKind
+								{
+									string Proc = "ParameterKind";
+									string Val = currentFragment.ParameterKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ParameterKind
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -38545,6 +47777,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.SchemaObjectName,currentObjectTreeViewItem);
 								//  -- Processing of set_SchemaObjectName
 
+								//  -- Non Ilist Processing of get_AsEdge
+								{
+									string Proc = "AsEdge";
+									string Val = currentFragment.AsEdge.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_AsEdge
+
 								//  -- Non Ilist Processing of get_AsFileTable
 								{
 									string Proc = "AsFileTable";
@@ -38553,6 +47794,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 									panel.Children.Add(p);							
 								}
 								//  -- Processing of set_AsFileTable
+
+								//  -- Non Ilist Processing of get_AsNode
+								{
+									string Proc = "AsNode";
+									string Val = currentFragment.AsNode.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_AsNode
 
 								ProcessTSQLFragment(currentFragment.Definition,currentObjectTreeViewItem);
 								//  -- Processing of set_Definition
@@ -38739,6 +47989,916 @@ namespace DacpacExplorer.TSqlFragmentProcess
 									panel.Children.Add(p);							
 								}
 								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayTableDistributionOption(Microsoft.SqlServer.TransactSql.ScriptDom.TableDistributionOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("TableDistributionOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Value,currentObjectTreeViewItem);
+								//  -- Processing of set_Value
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayTableDistributionPolicy(Microsoft.SqlServer.TransactSql.ScriptDom.TableDistributionPolicy currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("TableDistributionPolicy");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayTableReplicateDistributionPolicy(Microsoft.SqlServer.TransactSql.ScriptDom.TableReplicateDistributionPolicy currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("TableReplicateDistributionPolicy");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayTableRoundRobinDistributionPolicy(Microsoft.SqlServer.TransactSql.ScriptDom.TableRoundRobinDistributionPolicy currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("TableRoundRobinDistributionPolicy");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayTableHashDistributionPolicy(Microsoft.SqlServer.TransactSql.ScriptDom.TableHashDistributionPolicy currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("TableHashDistributionPolicy");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.DistributionColumn,currentObjectTreeViewItem);
+								//  -- Processing of set_DistributionColumn
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayTableIndexOption(Microsoft.SqlServer.TransactSql.ScriptDom.TableIndexOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("TableIndexOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Value,currentObjectTreeViewItem);
+								//  -- Processing of set_Value
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayTableIndexType(Microsoft.SqlServer.TransactSql.ScriptDom.TableIndexType currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("TableIndexType");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayTableClusteredIndexType(Microsoft.SqlServer.TransactSql.ScriptDom.TableClusteredIndexType currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("TableClusteredIndexType");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								
+								{
+									var newItem=AddTSqlFragment("Columns"+"["+currentFragment.Columns.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Columns){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Non Ilist Processing of get_ColumnStore
+								{
+									string Proc = "ColumnStore";
+									string Val = currentFragment.ColumnStore.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ColumnStore
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayTableNonClusteredIndexType(Microsoft.SqlServer.TransactSql.ScriptDom.TableNonClusteredIndexType currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("TableNonClusteredIndexType");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayTablePartitionOption(Microsoft.SqlServer.TransactSql.ScriptDom.TablePartitionOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("TablePartitionOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.PartitionColumn,currentObjectTreeViewItem);
+								//  -- Processing of set_PartitionColumn
+
+								ProcessTSQLFragment(currentFragment.PartitionOptionSpecs,currentObjectTreeViewItem);
+								//  -- Processing of set_PartitionOptionSpecs
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayPartitionSpecifications(Microsoft.SqlServer.TransactSql.ScriptDom.PartitionSpecifications currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("PartitionSpecifications");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of AcceptChildren
+
+								//  -- Processing of Accept
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayTablePartitionOptionSpecifications(Microsoft.SqlServer.TransactSql.ScriptDom.TablePartitionOptionSpecifications currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("TablePartitionOptionSpecifications");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_Range
+								{
+									string Proc = "Range";
+									string Val = currentFragment.Range.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_Range
+
+								
+								{
+									var newItem=AddTSqlFragment("BoundaryValues"+"["+currentFragment.BoundaryValues.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.BoundaryValues){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -39281,6 +49441,164 @@ namespace DacpacExplorer.TSqlFragmentProcess
 									panel.Children.Add(p);							
 								}
 								//  -- Processing of set_Nullable
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.ConstraintIdentifier,currentObjectTreeViewItem);
+								//  -- Processing of set_ConstraintIdentifier
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayGraphConnectionBetweenNodes(Microsoft.SqlServer.TransactSql.ScriptDom.GraphConnectionBetweenNodes currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("GraphConnectionBetweenNodes");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.FromNode,currentObjectTreeViewItem);
+								//  -- Processing of set_FromNode
+
+								ProcessTSQLFragment(currentFragment.ToNode,currentObjectTreeViewItem);
+								//  -- Processing of set_ToNode
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayGraphConnectionConstraintDefinition(Microsoft.SqlServer.TransactSql.ScriptDom.GraphConnectionConstraintDefinition currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("GraphConnectionConstraintDefinition");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								
+								{
+									var newItem=AddTSqlFragment("FromNodeToNodeList"+"["+currentFragment.FromNodeToNodeList.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.FromNodeToNodeList){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
 
 								//  -- Processing of Accept
 
@@ -41213,6 +51531,81 @@ namespace DacpacExplorer.TSqlFragmentProcess
 									panel.Children.Add(p);							
 								}
 								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalTableColumnDefinition(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableColumnDefinition currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalTableColumnDefinition");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.ColumnDefinition,currentObjectTreeViewItem);
+								//  -- Processing of set_ColumnDefinition
+
+								ProcessTSQLFragment(currentFragment.NullableConstraint,currentObjectTreeViewItem);
+								//  -- Processing of set_NullableConstraint
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -43363,6 +53756,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Secret,currentObjectTreeViewItem);
 								//  -- Processing of set_Secret
 
+								//  -- Non Ilist Processing of get_IsDatabaseScoped
+								{
+									string Proc = "IsDatabaseScoped";
+									string Val = currentFragment.IsDatabaseScoped.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsDatabaseScoped
+
 								//  -- Processing of AcceptChildren
 
 								//  -- Processing of Accept
@@ -43448,6 +53850,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Secret,currentObjectTreeViewItem);
 								//  -- Processing of set_Secret
 
+								//  -- Non Ilist Processing of get_IsDatabaseScoped
+								{
+									string Proc = "IsDatabaseScoped";
+									string Val = currentFragment.IsDatabaseScoped.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsDatabaseScoped
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -43525,6 +53936,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.Secret,currentObjectTreeViewItem);
 								//  -- Processing of set_Secret
+
+								//  -- Non Ilist Processing of get_IsDatabaseScoped
+								{
+									string Proc = "IsDatabaseScoped";
+									string Val = currentFragment.IsDatabaseScoped.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsDatabaseScoped
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -47798,6 +58218,92 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 
 
+			 private void DisplayGlobalFunctionTableReference(Microsoft.SqlServer.TransactSql.ScriptDom.GlobalFunctionTableReference currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("GlobalFunctionTableReference");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								
+								{
+									var newItem=AddTSqlFragment("Parameters"+"["+currentFragment.Parameters.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Parameters){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Alias,currentObjectTreeViewItem);
+								//  -- Processing of set_Alias
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
 			 private void DisplayComputeClause(Microsoft.SqlServer.TransactSql.ScriptDom.ComputeClause currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ComputeClause");
@@ -48745,6 +59251,165 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.Expression,currentObjectTreeViewItem);
 								//  -- Processing of set_Expression
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayGraphMatchPredicate(Microsoft.SqlServer.TransactSql.ScriptDom.GraphMatchPredicate currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("GraphMatchPredicate");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Expression,currentObjectTreeViewItem);
+								//  -- Processing of set_Expression
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayGraphMatchExpression(Microsoft.SqlServer.TransactSql.ScriptDom.GraphMatchExpression currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("GraphMatchExpression");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.LeftNode,currentObjectTreeViewItem);
+								//  -- Processing of set_LeftNode
+
+								ProcessTSQLFragment(currentFragment.Edge,currentObjectTreeViewItem);
+								//  -- Processing of set_Edge
+
+								ProcessTSQLFragment(currentFragment.RightNode,currentObjectTreeViewItem);
+								//  -- Processing of set_RightNode
+
+								//  -- Non Ilist Processing of get_ArrowOnRight
+								{
+									string Proc = "ArrowOnRight";
+									string Val = currentFragment.ArrowOnRight.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ArrowOnRight
 
 								//  -- Processing of Accept
 
@@ -51720,6 +62385,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -51791,6 +62465,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -51872,6 +62555,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								}
 								}
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -51951,6 +62643,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								
 								}
 								}
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -52041,6 +62742,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								}
 								}
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -52113,6 +62823,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -52184,6 +62903,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -52329,6 +63057,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -52401,6 +63138,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -52468,6 +63214,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
                         COD.Properties = panel;
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Processing of Accept
 
@@ -52544,6 +63299,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -52695,6 +63459,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -52776,6 +63549,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -52848,6 +63630,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -52913,12 +63704,30 @@ namespace DacpacExplorer.TSqlFragmentProcess
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("DropCredentialStatement");
 						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
                         COD.Properties = panel;
+								//  -- Non Ilist Processing of get_IsDatabaseScoped
+								{
+									string Proc = "IsDatabaseScoped";
+									string Val = currentFragment.IsDatabaseScoped.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsDatabaseScoped
+
 								//  -- Processing of Accept
 
 								//  -- Processing of AcceptChildren
 
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -54168,6 +64977,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -55546,6 +66364,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -55618,6 +66445,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -55689,6 +66525,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -55834,6 +66679,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -55906,6 +66760,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -55977,6 +66840,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -58442,6 +69314,9 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Into,currentObjectTreeViewItem);
 								//  -- Processing of set_Into
 
+								ProcessTSQLFragment(currentFragment.On,currentObjectTreeViewItem);
+								//  -- Processing of set_On
+
 								
 								{
 									var newItem=AddTSqlFragment("ComputeClauses"+"["+currentFragment.ComputeClauses.Count.ToString()+"]",null, currentObjectTreeViewItem);
@@ -60396,6 +71271,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -60657,6 +71541,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -61008,6 +71901,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -62774,6 +73676,530 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalResourcePoolStatement(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalResourcePoolStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalResourcePoolStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								
+								{
+									var newItem=AddTSqlFragment("ExternalResourcePoolParameters"+"["+currentFragment.ExternalResourcePoolParameters.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.ExternalResourcePoolParameters){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalResourcePoolParameter(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalResourcePoolParameter currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalResourcePoolParameter");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_ParameterType
+								{
+									string Proc = "ParameterType";
+									string Val = currentFragment.ParameterType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_ParameterType
+
+								ProcessTSQLFragment(currentFragment.ParameterValue,currentObjectTreeViewItem);
+								//  -- Processing of set_ParameterValue
+
+								ProcessTSQLFragment(currentFragment.AffinitySpecification,currentObjectTreeViewItem);
+								//  -- Processing of set_AffinitySpecification
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayExternalResourcePoolAffinitySpecification(Microsoft.SqlServer.TransactSql.ScriptDom.ExternalResourcePoolAffinitySpecification currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("ExternalResourcePoolAffinitySpecification");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_AffinityType
+								{
+									string Proc = "AffinityType";
+									string Val = currentFragment.AffinityType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_AffinityType
+
+								ProcessTSQLFragment(currentFragment.ParameterValue,currentObjectTreeViewItem);
+								//  -- Processing of set_ParameterValue
+
+								//  -- Non Ilist Processing of get_IsAuto
+								{
+									string Proc = "IsAuto";
+									string Val = currentFragment.IsAuto.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsAuto
+
+								
+								{
+									var newItem=AddTSqlFragment("PoolAffinityRanges"+"["+currentFragment.PoolAffinityRanges.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.PoolAffinityRanges){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayCreateExternalResourcePoolStatement(Microsoft.SqlServer.TransactSql.ScriptDom.CreateExternalResourcePoolStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("CreateExternalResourcePoolStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								
+								{
+									var newItem=AddTSqlFragment("ExternalResourcePoolParameters"+"["+currentFragment.ExternalResourcePoolParameters.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.ExternalResourcePoolParameters){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayAlterExternalResourcePoolStatement(Microsoft.SqlServer.TransactSql.ScriptDom.AlterExternalResourcePoolStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AlterExternalResourcePoolStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								
+								{
+									var newItem=AddTSqlFragment("ExternalResourcePoolParameters"+"["+currentFragment.ExternalResourcePoolParameters.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.ExternalResourcePoolParameters){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayDropExternalResourcePoolStatement(Microsoft.SqlServer.TransactSql.ScriptDom.DropExternalResourcePoolStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("DropExternalResourcePoolStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
+								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -62855,6 +74281,9 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.PoolName,currentObjectTreeViewItem);
 								//  -- Processing of set_PoolName
+
+								ProcessTSQLFragment(currentFragment.ExternalPoolName,currentObjectTreeViewItem);
+								//  -- Processing of set_ExternalPoolName
 
 								//  -- Processing of AcceptChildren
 
@@ -63192,6 +74621,9 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.PoolName,currentObjectTreeViewItem);
 								//  -- Processing of set_PoolName
 
+								ProcessTSQLFragment(currentFragment.ExternalPoolName,currentObjectTreeViewItem);
+								//  -- Processing of set_ExternalPoolName
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -63278,6 +74710,9 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.PoolName,currentObjectTreeViewItem);
 								//  -- Processing of set_PoolName
 
+								ProcessTSQLFragment(currentFragment.ExternalPoolName,currentObjectTreeViewItem);
+								//  -- Processing of set_ExternalPoolName
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -63349,6 +74784,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -63761,6 +75205,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -64091,6 +75544,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -64322,6 +75784,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -64462,6 +75933,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_SessionScope
+								{
+									string Proc = "SessionScope";
+									string Val = currentFragment.SessionScope.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_SessionScope
+
 								
 								{
 									var newItem=AddTSqlFragment("EventDeclarations"+"["+currentFragment.EventDeclarations.Count.ToString()+"]",null, currentObjectTreeViewItem);
@@ -64570,6 +76050,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_SessionScope
+								{
+									string Proc = "SessionScope";
+									string Val = currentFragment.SessionScope.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_SessionScope
 
 								
 								{
@@ -65631,6 +77120,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_SessionScope
+								{
+									string Proc = "SessionScope";
+									string Val = currentFragment.SessionScope.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_SessionScope
+
 								
 								{
 									var newItem=AddTSqlFragment("EventDeclarations"+"["+currentFragment.EventDeclarations.Count.ToString()+"]",null, currentObjectTreeViewItem);
@@ -65729,12 +77227,30 @@ namespace DacpacExplorer.TSqlFragmentProcess
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("DropEventSessionStatement");
 						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
                         COD.Properties = panel;
+								//  -- Non Ilist Processing of get_SessionScope
+								{
+									string Proc = "SessionScope";
+									string Val = currentFragment.SessionScope.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_SessionScope
+
 								//  -- Processing of Accept
 
 								//  -- Processing of AcceptChildren
 
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -67608,6 +79124,167 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 
 
+			 private void DisplayAlterServerConfigurationSetSoftNumaStatement(Microsoft.SqlServer.TransactSql.ScriptDom.AlterServerConfigurationSetSoftNumaStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AlterServerConfigurationSetSoftNumaStatement");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								
+								{
+									var newItem=AddTSqlFragment("Options"+"["+currentFragment.Options.Count.ToString()+"]",null, currentObjectTreeViewItem);
+									int c=0;
+								foreach(var i in currentFragment.Options){
+									ProcessTSQLFragment(i,newItem,c);
+									c++;
+								
+								}
+								}
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayAlterServerConfigurationSoftNumaOption(Microsoft.SqlServer.TransactSql.ScriptDom.AlterServerConfigurationSoftNumaOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AlterServerConfigurationSoftNumaOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								ProcessTSQLFragment(currentFragment.OptionValue,currentObjectTreeViewItem);
+								//  -- Processing of set_OptionValue
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
 			 private void DisplayAvailabilityGroupStatement(Microsoft.SqlServer.TransactSql.ScriptDom.AvailabilityGroupStatement currentFragment, TreeViewItem currentObjectTreeViewItem)
 	        {
 						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("AvailabilityGroupStatement");
@@ -68944,6 +80621,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
 
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
+
 								//  -- Non Ilist Processing of get_StartOffset
 								{
 									string Proc = "StartOffset";
@@ -69180,6 +80866,15 @@ namespace DacpacExplorer.TSqlFragmentProcess
 
 								ProcessTSQLFragment(currentFragment.Name,currentObjectTreeViewItem);
 								//  -- Processing of set_Name
+
+								//  -- Non Ilist Processing of get_IsIfExists
+								{
+									string Proc = "IsIfExists";
+									string Val = currentFragment.IsIfExists.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_IsIfExists
 
 								//  -- Non Ilist Processing of get_StartOffset
 								{
@@ -69528,6 +81223,9 @@ namespace DacpacExplorer.TSqlFragmentProcess
 								
 								}
 								}
+
+								ProcessTSQLFragment(currentFragment.FilterPredicate,currentObjectTreeViewItem);
+								//  -- Processing of set_FilterPredicate
 
 								
 								{
@@ -69936,6 +81634,180 @@ namespace DacpacExplorer.TSqlFragmentProcess
 			} // End
 
 
+
+			 private void DisplayTemporalClause(Microsoft.SqlServer.TransactSql.ScriptDom.TemporalClause currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("TemporalClause");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								//  -- Non Ilist Processing of get_TemporalClauseType
+								{
+									string Proc = "TemporalClauseType";
+									string Val = currentFragment.TemporalClauseType.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_TemporalClauseType
+
+								ProcessTSQLFragment(currentFragment.StartTime,currentObjectTreeViewItem);
+								//  -- Processing of set_StartTime
+
+								ProcessTSQLFragment(currentFragment.EndTime,currentObjectTreeViewItem);
+								//  -- Processing of set_EndTime
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
+
+			 private void DisplayCompressionDelayIndexOption(Microsoft.SqlServer.TransactSql.ScriptDom.CompressionDelayIndexOption currentFragment, TreeViewItem currentObjectTreeViewItem)
+	        {
+						var panel = PropertiesPageBuilder.GetPropertiesDisplayPanel("CompressionDelayIndexOption");
+						CachedObjectDisplay COD = (CachedObjectDisplay)currentObjectTreeViewItem.Tag;
+                        COD.Properties = panel;
+								ProcessTSQLFragment(currentFragment.Expression,currentObjectTreeViewItem);
+								//  -- Processing of set_Expression
+
+								//  -- Non Ilist Processing of get_TimeUnit
+								{
+									string Proc = "TimeUnit";
+									string Val = currentFragment.TimeUnit.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_TimeUnit
+
+								//  -- Processing of Accept
+
+								//  -- Processing of AcceptChildren
+
+								//  -- Non Ilist Processing of get_OptionKind
+								{
+									string Proc = "OptionKind";
+									string Val = currentFragment.OptionKind.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_OptionKind
+
+								//  -- Non Ilist Processing of get_StartOffset
+								{
+									string Proc = "StartOffset";
+									string Val = currentFragment.StartOffset.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FragmentLength
+								{
+									string Proc = "FragmentLength";
+									string Val = currentFragment.FragmentLength.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartLine
+								{
+									string Proc = "StartLine";
+									string Val = currentFragment.StartLine.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_StartColumn
+								{
+									string Proc = "StartColumn";
+									string Val = currentFragment.StartColumn.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Non Ilist Processing of get_FirstTokenIndex
+								{
+									string Proc = "FirstTokenIndex";
+									string Val = currentFragment.FirstTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_FirstTokenIndex
+
+								//  -- Non Ilist Processing of get_LastTokenIndex
+								{
+									string Proc = "LastTokenIndex";
+									string Val = currentFragment.LastTokenIndex.ToString();
+									var p = PropertiesPageBuilder.GetPropertyLabel(Proc,Val);	
+									panel.Children.Add(p);							
+								}
+								//  -- Processing of set_LastTokenIndex
+
+								//  -- Processing of set_ScriptTokenStream
+
+								//  -- Processing of ToString
+
+								//  -- Processing of Equals
+
+								//  -- Processing of GetHashCode
+
+								//  -- Processing of GetType
+
+			} // End
+
+
 		public void ProcessTSQLFragment(TSqlFragment currentFragment, TreeViewItem currentObjectTreeViewItem,int ArrCount=-1){
 			 if(currentFragment==null)return;
 			 var s = currentFragment.GetType().ToString();
@@ -70112,6 +81984,10 @@ namespace DacpacExplorer.TSqlFragmentProcess
 					DisplayCreateViewStatement((Microsoft.SqlServer.TransactSql.ScriptDom.CreateViewStatement)currentFragment,newItem);
 					break;
 		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.CreateOrAlterViewStatement":
+					DisplayCreateOrAlterViewStatement((Microsoft.SqlServer.TransactSql.ScriptDom.CreateOrAlterViewStatement)currentFragment,newItem);
+					break;
+		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.TriggerObject":
 					DisplayTriggerObject((Microsoft.SqlServer.TransactSql.ScriptDom.TriggerObject)currentFragment,newItem);
 					break;
@@ -70140,6 +82016,10 @@ namespace DacpacExplorer.TSqlFragmentProcess
 					DisplayCreateTriggerStatement((Microsoft.SqlServer.TransactSql.ScriptDom.CreateTriggerStatement)currentFragment,newItem);
 					break;
 		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.CreateOrAlterTriggerStatement":
+					DisplayCreateOrAlterTriggerStatement((Microsoft.SqlServer.TransactSql.ScriptDom.CreateOrAlterTriggerStatement)currentFragment,newItem);
+					break;
+		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.ProcedureStatementBodyBase":
 					DisplayProcedureStatementBodyBase((Microsoft.SqlServer.TransactSql.ScriptDom.ProcedureStatementBodyBase)currentFragment,newItem);
 					break;
@@ -70154,6 +82034,10 @@ namespace DacpacExplorer.TSqlFragmentProcess
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.CreateProcedureStatement":
 					DisplayCreateProcedureStatement((Microsoft.SqlServer.TransactSql.ScriptDom.CreateProcedureStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.CreateOrAlterProcedureStatement":
+					DisplayCreateOrAlterProcedureStatement((Microsoft.SqlServer.TransactSql.ScriptDom.CreateOrAlterProcedureStatement)currentFragment,newItem);
 					break;
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.ProcedureReference":
@@ -70178,6 +82062,10 @@ namespace DacpacExplorer.TSqlFragmentProcess
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.FunctionOption":
 					DisplayFunctionOption((Microsoft.SqlServer.TransactSql.ScriptDom.FunctionOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.InlineFunctionOption":
+					DisplayInlineFunctionOption((Microsoft.SqlServer.TransactSql.ScriptDom.InlineFunctionOption)currentFragment,newItem);
 					break;
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExecuteAsFunctionOption":
@@ -70352,6 +82240,14 @@ namespace DacpacExplorer.TSqlFragmentProcess
 					DisplayXmlForClauseOption((Microsoft.SqlServer.TransactSql.ScriptDom.XmlForClauseOption)currentFragment,newItem);
 					break;
 		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.JsonForClause":
+					DisplayJsonForClause((Microsoft.SqlServer.TransactSql.ScriptDom.JsonForClause)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.JsonForClauseOption":
+					DisplayJsonForClauseOption((Microsoft.SqlServer.TransactSql.ScriptDom.JsonForClauseOption)currentFragment,newItem);
+					break;
+		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.UpdateForClause":
 					DisplayUpdateForClause((Microsoft.SqlServer.TransactSql.ScriptDom.UpdateForClause)currentFragment,newItem);
 					break;
@@ -70374,6 +82270,10 @@ namespace DacpacExplorer.TSqlFragmentProcess
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.OptimizeForOptimizerHint":
 					DisplayOptimizeForOptimizerHint((Microsoft.SqlServer.TransactSql.ScriptDom.OptimizeForOptimizerHint)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.UseHintList":
+					DisplayUseHintList((Microsoft.SqlServer.TransactSql.ScriptDom.UseHintList)currentFragment,newItem);
 					break;
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.VariableValuePair":
@@ -70428,6 +82328,10 @@ namespace DacpacExplorer.TSqlFragmentProcess
 					DisplayOpenXmlTableReference((Microsoft.SqlServer.TransactSql.ScriptDom.OpenXmlTableReference)currentFragment,newItem);
 					break;
 		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.OpenJsonTableReference":
+					DisplayOpenJsonTableReference((Microsoft.SqlServer.TransactSql.ScriptDom.OpenJsonTableReference)currentFragment,newItem);
+					break;
+		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.OpenRowsetTableReference":
 					DisplayOpenRowsetTableReference((Microsoft.SqlServer.TransactSql.ScriptDom.OpenRowsetTableReference)currentFragment,newItem);
 					break;
@@ -70452,6 +82356,10 @@ namespace DacpacExplorer.TSqlFragmentProcess
 					DisplaySchemaDeclarationItem((Microsoft.SqlServer.TransactSql.ScriptDom.SchemaDeclarationItem)currentFragment,newItem);
 					break;
 		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.SchemaDeclarationItemOpenjson":
+					DisplaySchemaDeclarationItemOpenjson((Microsoft.SqlServer.TransactSql.ScriptDom.SchemaDeclarationItemOpenjson)currentFragment,newItem);
+					break;
+		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.ConvertCall":
 					DisplayConvertCall((Microsoft.SqlServer.TransactSql.ScriptDom.ConvertCall)currentFragment,newItem);
 					break;
@@ -70474,6 +82382,10 @@ namespace DacpacExplorer.TSqlFragmentProcess
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.TryCastCall":
 					DisplayTryCastCall((Microsoft.SqlServer.TransactSql.ScriptDom.TryCastCall)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AtTimeZoneCall":
+					DisplayAtTimeZoneCall((Microsoft.SqlServer.TransactSql.ScriptDom.AtTimeZoneCall)currentFragment,newItem);
 					break;
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.FunctionCall":
@@ -70598,6 +82510,10 @@ namespace DacpacExplorer.TSqlFragmentProcess
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.CreateFunctionStatement":
 					DisplayCreateFunctionStatement((Microsoft.SqlServer.TransactSql.ScriptDom.CreateFunctionStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.CreateOrAlterFunctionStatement":
+					DisplayCreateOrAlterFunctionStatement((Microsoft.SqlServer.TransactSql.ScriptDom.CreateOrAlterFunctionStatement)currentFragment,newItem);
 					break;
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.CreateRuleStatement":
@@ -70840,6 +82756,10 @@ namespace DacpacExplorer.TSqlFragmentProcess
 					DisplayGlobalVariableExpression((Microsoft.SqlServer.TransactSql.ScriptDom.GlobalVariableExpression)currentFragment,newItem);
 					break;
 		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.IdentifierOrScalarExpression":
+					DisplayIdentifierOrScalarExpression((Microsoft.SqlServer.TransactSql.ScriptDom.IdentifierOrScalarExpression)currentFragment,newItem);
+					break;
+		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.SchemaObjectNameOrValueExpression":
 					DisplaySchemaObjectNameOrValueExpression((Microsoft.SqlServer.TransactSql.ScriptDom.SchemaObjectNameOrValueExpression)currentFragment,newItem);
 					break;
@@ -70886,6 +82806,186 @@ namespace DacpacExplorer.TSqlFragmentProcess
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.DropSequenceStatement":
 					DisplayDropSequenceStatement((Microsoft.SqlServer.TransactSql.ScriptDom.DropSequenceStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.SecurityPolicyStatement":
+					DisplaySecurityPolicyStatement((Microsoft.SqlServer.TransactSql.ScriptDom.SecurityPolicyStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.SecurityPredicateAction":
+					DisplaySecurityPredicateAction((Microsoft.SqlServer.TransactSql.ScriptDom.SecurityPredicateAction)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.SecurityPolicyOption":
+					DisplaySecurityPolicyOption((Microsoft.SqlServer.TransactSql.ScriptDom.SecurityPolicyOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.CreateSecurityPolicyStatement":
+					DisplayCreateSecurityPolicyStatement((Microsoft.SqlServer.TransactSql.ScriptDom.CreateSecurityPolicyStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterSecurityPolicyStatement":
+					DisplayAlterSecurityPolicyStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AlterSecurityPolicyStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.DropSecurityPolicyStatement":
+					DisplayDropSecurityPolicyStatement((Microsoft.SqlServer.TransactSql.ScriptDom.DropSecurityPolicyStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.CreateColumnMasterKeyStatement":
+					DisplayCreateColumnMasterKeyStatement((Microsoft.SqlServer.TransactSql.ScriptDom.CreateColumnMasterKeyStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ColumnMasterKeyParameter":
+					DisplayColumnMasterKeyParameter((Microsoft.SqlServer.TransactSql.ScriptDom.ColumnMasterKeyParameter)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ColumnMasterKeyStoreProviderNameParameter":
+					DisplayColumnMasterKeyStoreProviderNameParameter((Microsoft.SqlServer.TransactSql.ScriptDom.ColumnMasterKeyStoreProviderNameParameter)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ColumnMasterKeyPathParameter":
+					DisplayColumnMasterKeyPathParameter((Microsoft.SqlServer.TransactSql.ScriptDom.ColumnMasterKeyPathParameter)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.DropUnownedObjectStatement":
+					DisplayDropUnownedObjectStatement((Microsoft.SqlServer.TransactSql.ScriptDom.DropUnownedObjectStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.DropColumnMasterKeyStatement":
+					DisplayDropColumnMasterKeyStatement((Microsoft.SqlServer.TransactSql.ScriptDom.DropColumnMasterKeyStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionKeyStatement":
+					DisplayColumnEncryptionKeyStatement((Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionKeyStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.CreateColumnEncryptionKeyStatement":
+					DisplayCreateColumnEncryptionKeyStatement((Microsoft.SqlServer.TransactSql.ScriptDom.CreateColumnEncryptionKeyStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterColumnEncryptionKeyStatement":
+					DisplayAlterColumnEncryptionKeyStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AlterColumnEncryptionKeyStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.DropColumnEncryptionKeyStatement":
+					DisplayDropColumnEncryptionKeyStatement((Microsoft.SqlServer.TransactSql.ScriptDom.DropColumnEncryptionKeyStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionKeyValue":
+					DisplayColumnEncryptionKeyValue((Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionKeyValue)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionKeyValueParameter":
+					DisplayColumnEncryptionKeyValueParameter((Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionKeyValueParameter)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ColumnMasterKeyNameParameter":
+					DisplayColumnMasterKeyNameParameter((Microsoft.SqlServer.TransactSql.ScriptDom.ColumnMasterKeyNameParameter)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionAlgorithmNameParameter":
+					DisplayColumnEncryptionAlgorithmNameParameter((Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionAlgorithmNameParameter)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.EncryptedValueParameter":
+					DisplayEncryptedValueParameter((Microsoft.SqlServer.TransactSql.ScriptDom.EncryptedValueParameter)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableStatement":
+					DisplayExternalTableStatement((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableOption":
+					DisplayExternalTableOption((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableLiteralOrIdentifierOption":
+					DisplayExternalTableLiteralOrIdentifierOption((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableLiteralOrIdentifierOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableDistributionOption":
+					DisplayExternalTableDistributionOption((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableDistributionOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableRejectTypeOption":
+					DisplayExternalTableRejectTypeOption((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableRejectTypeOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableDistributionPolicy":
+					DisplayExternalTableDistributionPolicy((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableDistributionPolicy)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableReplicatedDistributionPolicy":
+					DisplayExternalTableReplicatedDistributionPolicy((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableReplicatedDistributionPolicy)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableRoundRobinDistributionPolicy":
+					DisplayExternalTableRoundRobinDistributionPolicy((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableRoundRobinDistributionPolicy)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableShardedDistributionPolicy":
+					DisplayExternalTableShardedDistributionPolicy((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableShardedDistributionPolicy)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.CreateExternalTableStatement":
+					DisplayCreateExternalTableStatement((Microsoft.SqlServer.TransactSql.ScriptDom.CreateExternalTableStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.DropExternalTableStatement":
+					DisplayDropExternalTableStatement((Microsoft.SqlServer.TransactSql.ScriptDom.DropExternalTableStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalDataSourceStatement":
+					DisplayExternalDataSourceStatement((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalDataSourceStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalDataSourceOption":
+					DisplayExternalDataSourceOption((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalDataSourceOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalDataSourceLiteralOrIdentifierOption":
+					DisplayExternalDataSourceLiteralOrIdentifierOption((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalDataSourceLiteralOrIdentifierOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.CreateExternalDataSourceStatement":
+					DisplayCreateExternalDataSourceStatement((Microsoft.SqlServer.TransactSql.ScriptDom.CreateExternalDataSourceStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterExternalDataSourceStatement":
+					DisplayAlterExternalDataSourceStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AlterExternalDataSourceStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.DropExternalDataSourceStatement":
+					DisplayDropExternalDataSourceStatement((Microsoft.SqlServer.TransactSql.ScriptDom.DropExternalDataSourceStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalFileFormatStatement":
+					DisplayExternalFileFormatStatement((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalFileFormatStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalFileFormatOption":
+					DisplayExternalFileFormatOption((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalFileFormatOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalFileFormatLiteralOption":
+					DisplayExternalFileFormatLiteralOption((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalFileFormatLiteralOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalFileFormatUseDefaultTypeOption":
+					DisplayExternalFileFormatUseDefaultTypeOption((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalFileFormatUseDefaultTypeOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalFileFormatContainerOption":
+					DisplayExternalFileFormatContainerOption((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalFileFormatContainerOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.CreateExternalFileFormatStatement":
+					DisplayCreateExternalFileFormatStatement((Microsoft.SqlServer.TransactSql.ScriptDom.CreateExternalFileFormatStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.DropExternalFileFormatStatement":
+					DisplayDropExternalFileFormatStatement((Microsoft.SqlServer.TransactSql.ScriptDom.DropExternalFileFormatStatement)currentFragment,newItem);
 					break;
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.AssemblyStatement":
@@ -70936,6 +83036,10 @@ namespace DacpacExplorer.TSqlFragmentProcess
 					DisplayAlterTableStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AlterTableStatement)currentFragment,newItem);
 					break;
 		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterTableAlterPartitionStatement":
+					DisplayAlterTableAlterPartitionStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AlterTableAlterPartitionStatement)currentFragment,newItem);
+					break;
+		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterTableRebuildStatement":
 					DisplayAlterTableRebuildStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AlterTableRebuildStatement)currentFragment,newItem);
 					break;
@@ -70984,6 +83088,46 @@ namespace DacpacExplorer.TSqlFragmentProcess
 					DisplayDurabilityTableOption((Microsoft.SqlServer.TransactSql.ScriptDom.DurabilityTableOption)currentFragment,newItem);
 					break;
 		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveTableOption":
+					DisplayRemoteDataArchiveTableOption((Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveTableOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveAlterTableOption":
+					DisplayRemoteDataArchiveAlterTableOption((Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveAlterTableOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.DatabaseOption":
+					DisplayDatabaseOption((Microsoft.SqlServer.TransactSql.ScriptDom.DatabaseOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveDatabaseOption":
+					DisplayRemoteDataArchiveDatabaseOption((Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveDatabaseOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveDatabaseSetting":
+					DisplayRemoteDataArchiveDatabaseSetting((Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveDatabaseSetting)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveDbServerSetting":
+					DisplayRemoteDataArchiveDbServerSetting((Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveDbServerSetting)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveDbCredentialSetting":
+					DisplayRemoteDataArchiveDbCredentialSetting((Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveDbCredentialSetting)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveDbFederatedServiceAccountSetting":
+					DisplayRemoteDataArchiveDbFederatedServiceAccountSetting((Microsoft.SqlServer.TransactSql.ScriptDom.RemoteDataArchiveDbFederatedServiceAccountSetting)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.RetentionPeriodDefinition":
+					DisplayRetentionPeriodDefinition((Microsoft.SqlServer.TransactSql.ScriptDom.RetentionPeriodDefinition)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.SystemVersioningTableOption":
+					DisplaySystemVersioningTableOption((Microsoft.SqlServer.TransactSql.ScriptDom.SystemVersioningTableOption)currentFragment,newItem);
+					break;
+		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterTableAddTableElementStatement":
 					DisplayAlterTableAddTableElementStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AlterTableAddTableElementStatement)currentFragment,newItem);
 					break;
@@ -71018,6 +83162,10 @@ namespace DacpacExplorer.TSqlFragmentProcess
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.DropClusteredConstraintMoveOption":
 					DisplayDropClusteredConstraintMoveOption((Microsoft.SqlServer.TransactSql.ScriptDom.DropClusteredConstraintMoveOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.DropClusteredConstraintWaitAtLowPriorityLockOption":
+					DisplayDropClusteredConstraintWaitAtLowPriorityLockOption((Microsoft.SqlServer.TransactSql.ScriptDom.DropClusteredConstraintWaitAtLowPriorityLockOption)currentFragment,newItem);
 					break;
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterTableDropTableElement":
@@ -71112,6 +83260,10 @@ namespace DacpacExplorer.TSqlFragmentProcess
 					DisplayIndexDefinition((Microsoft.SqlServer.TransactSql.ScriptDom.IndexDefinition)currentFragment,newItem);
 					break;
 		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.SystemTimePeriodDefinition":
+					DisplaySystemTimePeriodDefinition((Microsoft.SqlServer.TransactSql.ScriptDom.SystemTimePeriodDefinition)currentFragment,newItem);
+					break;
+		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.IndexStatement":
 					DisplayIndexStatement((Microsoft.SqlServer.TransactSql.ScriptDom.IndexStatement)currentFragment,newItem);
 					break;
@@ -71156,8 +83308,24 @@ namespace DacpacExplorer.TSqlFragmentProcess
 					DisplayIndexExpressionOption((Microsoft.SqlServer.TransactSql.ScriptDom.IndexExpressionOption)currentFragment,newItem);
 					break;
 		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.MaxDurationOption":
+					DisplayMaxDurationOption((Microsoft.SqlServer.TransactSql.ScriptDom.MaxDurationOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.WaitAtLowPriorityOption":
+					DisplayWaitAtLowPriorityOption((Microsoft.SqlServer.TransactSql.ScriptDom.WaitAtLowPriorityOption)currentFragment,newItem);
+					break;
+		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.OnlineIndexOption":
 					DisplayOnlineIndexOption((Microsoft.SqlServer.TransactSql.ScriptDom.OnlineIndexOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.IgnoreDupKeyIndexOption":
+					DisplayIgnoreDupKeyIndexOption((Microsoft.SqlServer.TransactSql.ScriptDom.IgnoreDupKeyIndexOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.OrderIndexOption":
+					DisplayOrderIndexOption((Microsoft.SqlServer.TransactSql.ScriptDom.OrderIndexOption)currentFragment,newItem);
 					break;
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.OnlineIndexLowPriorityLockWaitOption":
@@ -71286,10 +83454,6 @@ namespace DacpacExplorer.TSqlFragmentProcess
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterServerRoleStatement":
 					DisplayAlterServerRoleStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AlterServerRoleStatement)currentFragment,newItem);
-					break;
-		
-				case "Microsoft.SqlServer.TransactSql.ScriptDom.DropUnownedObjectStatement":
-					DisplayDropUnownedObjectStatement((Microsoft.SqlServer.TransactSql.ScriptDom.DropUnownedObjectStatement)currentFragment,newItem);
 					break;
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.DropServerRoleStatement":
@@ -71620,6 +83784,38 @@ namespace DacpacExplorer.TSqlFragmentProcess
 					DisplayAlterDatabaseStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AlterDatabaseStatement)currentFragment,newItem);
 					break;
 		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterDatabaseScopedConfigurationStatement":
+					DisplayAlterDatabaseScopedConfigurationStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AlterDatabaseScopedConfigurationStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterDatabaseScopedConfigurationSetStatement":
+					DisplayAlterDatabaseScopedConfigurationSetStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AlterDatabaseScopedConfigurationSetStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterDatabaseScopedConfigurationClearStatement":
+					DisplayAlterDatabaseScopedConfigurationClearStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AlterDatabaseScopedConfigurationClearStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.DatabaseConfigurationClearOption":
+					DisplayDatabaseConfigurationClearOption((Microsoft.SqlServer.TransactSql.ScriptDom.DatabaseConfigurationClearOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.DatabaseConfigurationSetOption":
+					DisplayDatabaseConfigurationSetOption((Microsoft.SqlServer.TransactSql.ScriptDom.DatabaseConfigurationSetOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.OnOffPrimaryConfigurationOption":
+					DisplayOnOffPrimaryConfigurationOption((Microsoft.SqlServer.TransactSql.ScriptDom.OnOffPrimaryConfigurationOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.MaxDopConfigurationOption":
+					DisplayMaxDopConfigurationOption((Microsoft.SqlServer.TransactSql.ScriptDom.MaxDopConfigurationOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.GenericConfigurationOption":
+					DisplayGenericConfigurationOption((Microsoft.SqlServer.TransactSql.ScriptDom.GenericConfigurationOption)currentFragment,newItem);
+					break;
+		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterDatabaseCollateStatement":
 					DisplayAlterDatabaseCollateStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AlterDatabaseCollateStatement)currentFragment,newItem);
 					break;
@@ -71662,10 +83858,6 @@ namespace DacpacExplorer.TSqlFragmentProcess
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterDatabaseSetStatement":
 					DisplayAlterDatabaseSetStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AlterDatabaseSetStatement)currentFragment,newItem);
-					break;
-		
-				case "Microsoft.SqlServer.TransactSql.ScriptDom.DatabaseOption":
-					DisplayDatabaseOption((Microsoft.SqlServer.TransactSql.ScriptDom.DatabaseOption)currentFragment,newItem);
 					break;
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.OnOffDatabaseOption":
@@ -71744,12 +83936,84 @@ namespace DacpacExplorer.TSqlFragmentProcess
 					DisplayChangeRetentionChangeTrackingOptionDetail((Microsoft.SqlServer.TransactSql.ScriptDom.ChangeRetentionChangeTrackingOptionDetail)currentFragment,newItem);
 					break;
 		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreDatabaseOption":
+					DisplayQueryStoreDatabaseOption((Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreDatabaseOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreOption":
+					DisplayQueryStoreOption((Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreDesiredStateOption":
+					DisplayQueryStoreDesiredStateOption((Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreDesiredStateOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreCapturePolicyOption":
+					DisplayQueryStoreCapturePolicyOption((Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreCapturePolicyOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreSizeCleanupPolicyOption":
+					DisplayQueryStoreSizeCleanupPolicyOption((Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreSizeCleanupPolicyOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreDataFlushIntervalOption":
+					DisplayQueryStoreDataFlushIntervalOption((Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreDataFlushIntervalOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreIntervalLengthOption":
+					DisplayQueryStoreIntervalLengthOption((Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreIntervalLengthOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreMaxStorageSizeOption":
+					DisplayQueryStoreMaxStorageSizeOption((Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreMaxStorageSizeOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreMaxPlansPerQueryOption":
+					DisplayQueryStoreMaxPlansPerQueryOption((Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreMaxPlansPerQueryOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreTimeCleanupPolicyOption":
+					DisplayQueryStoreTimeCleanupPolicyOption((Microsoft.SqlServer.TransactSql.ScriptDom.QueryStoreTimeCleanupPolicyOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningDatabaseOption":
+					DisplayAutomaticTuningDatabaseOption((Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningDatabaseOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningOption":
+					DisplayAutomaticTuningOption((Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningForceLastGoodPlanOption":
+					DisplayAutomaticTuningForceLastGoodPlanOption((Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningForceLastGoodPlanOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningCreateIndexOption":
+					DisplayAutomaticTuningCreateIndexOption((Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningCreateIndexOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningDropIndexOption":
+					DisplayAutomaticTuningDropIndexOption((Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningDropIndexOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningMaintainIndexOption":
+					DisplayAutomaticTuningMaintainIndexOption((Microsoft.SqlServer.TransactSql.ScriptDom.AutomaticTuningMaintainIndexOption)currentFragment,newItem);
+					break;
+		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.FileStreamDatabaseOption":
 					DisplayFileStreamDatabaseOption((Microsoft.SqlServer.TransactSql.ScriptDom.FileStreamDatabaseOption)currentFragment,newItem);
 					break;
 		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.CatalogCollationOption":
+					DisplayCatalogCollationOption((Microsoft.SqlServer.TransactSql.ScriptDom.CatalogCollationOption)currentFragment,newItem);
+					break;
+		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.MaxSizeDatabaseOption":
 					DisplayMaxSizeDatabaseOption((Microsoft.SqlServer.TransactSql.ScriptDom.MaxSizeDatabaseOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterTableAlterIndexStatement":
+					DisplayAlterTableAlterIndexStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AlterTableAlterIndexStatement)currentFragment,newItem);
 					break;
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterTableAlterColumnStatement":
@@ -71762,6 +84026,26 @@ namespace DacpacExplorer.TSqlFragmentProcess
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.ColumnDefinition":
 					DisplayColumnDefinition((Microsoft.SqlServer.TransactSql.ScriptDom.ColumnDefinition)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionDefinition":
+					DisplayColumnEncryptionDefinition((Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionDefinition)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionDefinitionParameter":
+					DisplayColumnEncryptionDefinitionParameter((Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionDefinitionParameter)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionKeyNameParameter":
+					DisplayColumnEncryptionKeyNameParameter((Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionKeyNameParameter)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionTypeParameter":
+					DisplayColumnEncryptionTypeParameter((Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionTypeParameter)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionAlgorithmParameter":
+					DisplayColumnEncryptionAlgorithmParameter((Microsoft.SqlServer.TransactSql.ScriptDom.ColumnEncryptionAlgorithmParameter)currentFragment,newItem);
 					break;
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.IdentityOptions":
@@ -71788,6 +84072,54 @@ namespace DacpacExplorer.TSqlFragmentProcess
 					DisplayTableDataCompressionOption((Microsoft.SqlServer.TransactSql.ScriptDom.TableDataCompressionOption)currentFragment,newItem);
 					break;
 		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.TableDistributionOption":
+					DisplayTableDistributionOption((Microsoft.SqlServer.TransactSql.ScriptDom.TableDistributionOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.TableDistributionPolicy":
+					DisplayTableDistributionPolicy((Microsoft.SqlServer.TransactSql.ScriptDom.TableDistributionPolicy)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.TableReplicateDistributionPolicy":
+					DisplayTableReplicateDistributionPolicy((Microsoft.SqlServer.TransactSql.ScriptDom.TableReplicateDistributionPolicy)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.TableRoundRobinDistributionPolicy":
+					DisplayTableRoundRobinDistributionPolicy((Microsoft.SqlServer.TransactSql.ScriptDom.TableRoundRobinDistributionPolicy)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.TableHashDistributionPolicy":
+					DisplayTableHashDistributionPolicy((Microsoft.SqlServer.TransactSql.ScriptDom.TableHashDistributionPolicy)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.TableIndexOption":
+					DisplayTableIndexOption((Microsoft.SqlServer.TransactSql.ScriptDom.TableIndexOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.TableIndexType":
+					DisplayTableIndexType((Microsoft.SqlServer.TransactSql.ScriptDom.TableIndexType)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.TableClusteredIndexType":
+					DisplayTableClusteredIndexType((Microsoft.SqlServer.TransactSql.ScriptDom.TableClusteredIndexType)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.TableNonClusteredIndexType":
+					DisplayTableNonClusteredIndexType((Microsoft.SqlServer.TransactSql.ScriptDom.TableNonClusteredIndexType)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.TablePartitionOption":
+					DisplayTablePartitionOption((Microsoft.SqlServer.TransactSql.ScriptDom.TablePartitionOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.PartitionSpecifications":
+					DisplayPartitionSpecifications((Microsoft.SqlServer.TransactSql.ScriptDom.PartitionSpecifications)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.TablePartitionOptionSpecifications":
+					DisplayTablePartitionOptionSpecifications((Microsoft.SqlServer.TransactSql.ScriptDom.TablePartitionOptionSpecifications)currentFragment,newItem);
+					break;
+		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.DataCompressionOption":
 					DisplayDataCompressionOption((Microsoft.SqlServer.TransactSql.ScriptDom.DataCompressionOption)currentFragment,newItem);
 					break;
@@ -71810,6 +84142,14 @@ namespace DacpacExplorer.TSqlFragmentProcess
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.NullableConstraintDefinition":
 					DisplayNullableConstraintDefinition((Microsoft.SqlServer.TransactSql.ScriptDom.NullableConstraintDefinition)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.GraphConnectionBetweenNodes":
+					DisplayGraphConnectionBetweenNodes((Microsoft.SqlServer.TransactSql.ScriptDom.GraphConnectionBetweenNodes)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.GraphConnectionConstraintDefinition":
+					DisplayGraphConnectionConstraintDefinition((Microsoft.SqlServer.TransactSql.ScriptDom.GraphConnectionConstraintDefinition)currentFragment,newItem);
 					break;
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.UniqueConstraintDefinition":
@@ -71894,6 +84234,10 @@ namespace DacpacExplorer.TSqlFragmentProcess
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.OrderBulkInsertOption":
 					DisplayOrderBulkInsertOption((Microsoft.SqlServer.TransactSql.ScriptDom.OrderBulkInsertOption)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableColumnDefinition":
+					DisplayExternalTableColumnDefinition((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalTableColumnDefinition)currentFragment,newItem);
 					break;
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.InsertBulkColumnDefinition":
@@ -72192,6 +84536,10 @@ namespace DacpacExplorer.TSqlFragmentProcess
 					DisplayBuiltInFunctionTableReference((Microsoft.SqlServer.TransactSql.ScriptDom.BuiltInFunctionTableReference)currentFragment,newItem);
 					break;
 		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.GlobalFunctionTableReference":
+					DisplayGlobalFunctionTableReference((Microsoft.SqlServer.TransactSql.ScriptDom.GlobalFunctionTableReference)currentFragment,newItem);
+					break;
+		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.ComputeClause":
 					DisplayComputeClause((Microsoft.SqlServer.TransactSql.ScriptDom.ComputeClause)currentFragment,newItem);
 					break;
@@ -72238,6 +84586,14 @@ namespace DacpacExplorer.TSqlFragmentProcess
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.BooleanIsNullExpression":
 					DisplayBooleanIsNullExpression((Microsoft.SqlServer.TransactSql.ScriptDom.BooleanIsNullExpression)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.GraphMatchPredicate":
+					DisplayGraphMatchPredicate((Microsoft.SqlServer.TransactSql.ScriptDom.GraphMatchPredicate)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.GraphMatchExpression":
+					DisplayGraphMatchExpression((Microsoft.SqlServer.TransactSql.ScriptDom.GraphMatchExpression)currentFragment,newItem);
 					break;
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExpressionWithSortOrder":
@@ -72924,6 +85280,30 @@ namespace DacpacExplorer.TSqlFragmentProcess
 					DisplayDropResourcePoolStatement((Microsoft.SqlServer.TransactSql.ScriptDom.DropResourcePoolStatement)currentFragment,newItem);
 					break;
 		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalResourcePoolStatement":
+					DisplayExternalResourcePoolStatement((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalResourcePoolStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalResourcePoolParameter":
+					DisplayExternalResourcePoolParameter((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalResourcePoolParameter)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.ExternalResourcePoolAffinitySpecification":
+					DisplayExternalResourcePoolAffinitySpecification((Microsoft.SqlServer.TransactSql.ScriptDom.ExternalResourcePoolAffinitySpecification)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.CreateExternalResourcePoolStatement":
+					DisplayCreateExternalResourcePoolStatement((Microsoft.SqlServer.TransactSql.ScriptDom.CreateExternalResourcePoolStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterExternalResourcePoolStatement":
+					DisplayAlterExternalResourcePoolStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AlterExternalResourcePoolStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.DropExternalResourcePoolStatement":
+					DisplayDropExternalResourcePoolStatement((Microsoft.SqlServer.TransactSql.ScriptDom.DropExternalResourcePoolStatement)currentFragment,newItem);
+					break;
+		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.WorkloadGroupStatement":
 					DisplayWorkloadGroupStatement((Microsoft.SqlServer.TransactSql.ScriptDom.WorkloadGroupStatement)currentFragment,newItem);
 					break;
@@ -73152,6 +85532,14 @@ namespace DacpacExplorer.TSqlFragmentProcess
 					DisplayAlterServerConfigurationHadrClusterOption((Microsoft.SqlServer.TransactSql.ScriptDom.AlterServerConfigurationHadrClusterOption)currentFragment,newItem);
 					break;
 		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterServerConfigurationSetSoftNumaStatement":
+					DisplayAlterServerConfigurationSetSoftNumaStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AlterServerConfigurationSetSoftNumaStatement)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.AlterServerConfigurationSoftNumaOption":
+					DisplayAlterServerConfigurationSoftNumaOption((Microsoft.SqlServer.TransactSql.ScriptDom.AlterServerConfigurationSoftNumaOption)currentFragment,newItem);
+					break;
+		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.AvailabilityGroupStatement":
 					DisplayAvailabilityGroupStatement((Microsoft.SqlServer.TransactSql.ScriptDom.AvailabilityGroupStatement)currentFragment,newItem);
 					break;
@@ -73258,6 +85646,14 @@ namespace DacpacExplorer.TSqlFragmentProcess
 		
 				case "Microsoft.SqlServer.TransactSql.ScriptDom.SelectiveXmlIndexPromotedPath":
 					DisplaySelectiveXmlIndexPromotedPath((Microsoft.SqlServer.TransactSql.ScriptDom.SelectiveXmlIndexPromotedPath)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.TemporalClause":
+					DisplayTemporalClause((Microsoft.SqlServer.TransactSql.ScriptDom.TemporalClause)currentFragment,newItem);
+					break;
+		
+				case "Microsoft.SqlServer.TransactSql.ScriptDom.CompressionDelayIndexOption":
+					DisplayCompressionDelayIndexOption((Microsoft.SqlServer.TransactSql.ScriptDom.CompressionDelayIndexOption)currentFragment,newItem);
 					break;
 			}// EndSwitch
 
